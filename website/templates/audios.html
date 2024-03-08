@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audios</title>
+</head>
+<body>
+    <h1>Audios</h1>
+    {% for audio in audios %}
+        <audio controls>
+            <source src="{{ audio.audio_file.url }}" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
+    {% endfor %}
+</body>
+</html>

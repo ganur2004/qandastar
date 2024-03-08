@@ -1,0 +1,475 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QANDASTAR</title>
+    <link rel="stylesheet" href="{% static 'website/main.css' %}">
+    <link rel="stylesheet" href="{% static 'website/menu.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'website/slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'website/slick/slick-theme.css' %}"/>
+    <link rel="stylesheet" href="{% static 'website/lightzoom_v1.1.0/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css">
+</head>
+<body>
+    <nav>
+        <div class="wrapper" id="wrapper">
+          <div class="logo"><a href="#"></a></div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li><a href="#">Фото сурет</a></li>
+            <li><a href="#">Сұхбат</a></li>
+            <li><a href="#">Мақала</a></li>
+            <li><a href="#">Сауалнама</a></li>
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+    </nav>
+      
+    
+    <div class="main-sector-7dn" id="306:6">
+        <div class="rectangle-2-j9N" id="306:9">
+            <p class="item--MgY" id="306:8">Моңғолия мен Қытай этникалық қазақтарының Қазақстан Республикасына интеграциялану механизмі: әлеуметтік-мәдени және лингвистикалық-экологиялық мониторинг</p>
+        </div>
+    </div>
+
+    <div class="welcome-sector-s6c" id="306:14">
+        <div class="group-20-djz" id="336:2">
+            <div class="item--8Tn" id="306:15">Біздің әлеуметтік-мәдени интеграция әуесқойларының қауымдастығына қош келдіңіз. Алда сізді біздің ұйымның жұмыстары мен еңбектеріне саяхат күтіп тұр.</div>
+            <div class="auto-group-fgqu-Grp" id="VKbZwsdpxFRk3zLtjuFgQU">
+                <div class="auto-group-yw5w-Zb2" id="VKbaBha84RZ4YXG3zDyw5W">
+                    <div class="item--5JU" id="306:17"><a href="#306:22">Фото сурет</a></div>
+                </div>
+                <div class="auto-group-yw5w-Zb2" id="VKbaHhQ8VTrDGFKYTQCfnC">
+                    <div class="item--5JU" id="306:18"><a href="#306:70">Сұхбат</a></div>
+                </div>
+                <div class="auto-group-ichs-VQ8" id="VKbaNhFoWzmAs237r3ichS">
+                    <div class="item--S4U" id="306:19">Мақала</div>
+                </div>
+                <div class="auto-group-nxmj-EW8" id="VKbaTmwfpzHp4ChXAEnxmJ">
+                    <div class="item--Aeg" id="306:20">Сауалнама</div>
+                </div>
+                <div class="item--ohe" id="306:21">Статистика</div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="photo-E4h" id="306:22">
+      <div class="rectangle-18-BPF" id="306:69"></div>
+      <div class="item--MU5" id="306:25">Фото сурет</div>
+      <div class="auto-group-i1rc-MMb" id="MPMUZBP9LEkX91ELfmi1rC">
+        <div class="photo-slide">
+            {% for photo in latest_photos %}
+            <div><a href="{{ photo.image.url }}" class="lightzoom"><img src="{{ photo.image.url }}"></a></div>
+            {% endfor %}
+        </div>
+      </div>
+      
+    </div>
+
+
+    <div class="suhbat-Zvq" id="306:70">
+      <p class="item--Vv9" id="311:2">Сұхбат</p>
+      <div class="auto-group-7tcc-nob" id="MPMQssLub3BGdhNHRJ7tCc">
+        <div class="auto-group-4sal-buT" id="MPMRDh7D8FbjqxLw8o4saL">
+          <!--#################Видеожазба-->
+          <p class="item--XHK" id="311:11">Видеожазба</p>
+          <!--###########old code-->
+          <div class="auto-group-knx6-Kys" id="MPMRPBqPUZjZV278NpkNX6">
+            <div class="group-3-Eb3" id="311:19">
+              <div class="overlay">
+                  <div onclick="openModal('{{ latest_videos.0.id }}', 'videoModal{{ latest_videos.0.id }}')" class="play-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                          <circle cx="50" cy="50" r="40" fill="#ff0000" />
+                          <polygon points="40,30 40,70 70,50" fill="#ffffff" />
+                      </svg>
+                  </div>
+              </div>
+          </div>
+          
+            <div class="group-6-C41" id="311:35">
+              <div class="rectangle-21-LR7" id="311:31"></div>
+              <div class="group-5-GZf" id="311:30">
+                <p class="item--mmK" id="311:28">
+                  -Өзіңізді таныстырыңыз. Атыңызды, тегіңізді және әкеңіздің аты?
+                  
+                  <br/>
+                  <br/>
+                  -Бақытқызы Айнура - 28.08.2023
+                  
+                  <br/>
+                </p>
+              </div>  
+            </div>
+          </div>
+          <div class="auto-group-yfm6-pWd" id="MPMRYrDxPo6kJukyTwYfm6">
+            <div class="group-7-jdb" id="311:36">
+              <div class="rectangle-21-F69" id="311:37"></div>
+              <div class="group-5-NRf" id="311:38">
+                <p class="item--WGy" id="311:39">
+                  -Өзіңізді таныстырыңыз. Атыңызды, тегіңізді және әкеңіздің аты?
+                  
+                  <br/>
+                  <br/>
+                  -Менің есімім Бейімбет Ақелік. - 28.08.2023
+                  
+                  <br/>
+                  <br/>
+                  <br/>
+                  <br/>
+                </p>
+              </div>
+            </div>
+            <div class="group-4-2Y9" id="311:20">
+              <div class="overlay">
+                <div onclick="openModal('{{ latest_videos.1.id }}', 'videoModal{{ latest_videos.1.id }}')" class="play-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="#ff0000" />
+                        <polygon points="40,30 40,70 70,50" fill="#ffffff" />
+                    </svg>
+                </div>
+            </div>
+            </div>
+          </div>
+          <div class="auto-group-smp8-2Rf" id="MPMRhqxy3MYUPVrDAhsmp8">
+            <div class="group-3-ybo" id="311:24">
+              <!--<video width="100%" height="100%" controls class="custom-video">
+                <source src="video/video1.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+              </video>-->
+              <!--<img src="photo/poster_video.jpeg" alt="Фото" class="main-image">-->
+              <div class="overlay">
+                <div onclick="openModal3()" class="play-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" fill="#ff0000" />
+                    <polygon points="40,30 40,70 70,50" fill="#ffffff" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="group-8-CzM" id="311:44">
+              
+              <div class="group-5-GzD" id="311:46">
+                <p class="item--nSm" id="311:47">
+                  -Өзіңізді таныстырыңыз. Атыңызды, тегіңізді және әкеңіздің аты?
+                  
+                  <br/>
+                  <br/>
+                  -Менің есімім Армангүл Абдулали. - 18.09.2023
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="auto-group-w1ec-GPs" id="MPMSdKRsDxWjJYifr2W1Ec">
+          <div class="auto-group-8guj-oeh" id="MPMSBuzXfzsXLdQfH58GuJ">
+            <p class="item--Kd3" id="311:18">Аудиожазба</p>
+ 
+            {% for audio in latest_audios %}
+            <div class="group-10-h7o">
+                <div class="audio-design">
+                    <audio controls id="audio-style" class="plyr">
+                        <source src="{{ audio.audio_file.url }}" type="audio/mp4">
+                        Ваш браузер не поддерживает аудио HTML5.
+                    </audio>
+                </div>
+                <p class="item-28082023-kbs">{{ audio.uploaded_at }}</p>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+
+
+      {% for video in latest_videos %}
+      <div id="videoModal{{ video.id }}" class="modal">
+        <span class="close" onclick="closeModal('player{{ video.id }}', 'videoModal{{ video.id }}')">&times;</span>
+        <div class="modal-content">
+          <video id="player{{ video.id }}" controls width="90%" height="90%">
+            <source src="{{ video.video_file.url }}" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!--
+
+      <div id="videoModal1" class="modal">
+        <span class="close" onclick="closeModal1()">&times;</span>
+        <div class="modal-content">
+          <video id="player1" controls width="90%" height="90%">
+            <source src="video/video1.mp4" type="video/mp4" >
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+      </div>
+      <div id="videoModal2" class="modal">
+        <span class="close" onclick="closeModal2()">&times;</span>
+        <div class="modal-content">
+          <video id="player2" controls style="max-width: 40vh;">
+            <source src="video/video2.mp4" type="video/mp4" >
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+      </div>
+      <div id="videoModal3" class="modal">
+        <span class="close" onclick="closeModal3()">&times;</span>
+        <div class="modal-content">
+          <video id="player3" controls style="max-width: 40vh">
+            <source src="video/video3.mp4" type="video/mp4" >
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+      </div>
+    -->
+    </div>
+  
+    <div class="maqala-nZq" id="312:100">
+        <div class="item--Dj1" id="313:101">Мақала</div>
+        <div class="auto-group-emw4-fb1" id="MPMN9StsrF2t8TSjYPemW4">
+          <div class="group-17-oSK" id="317:117">
+            <div class="auto-group-qxxa-UYT" id="MPMNrvhmAmQqc4CDHMqXXA">
+              <img class="icons8-64-1-xTd" src="photo/icon_maqala.png" id="316:104"/>
+              <div class="item--UB5" id="316:105">ҒЫЛЫМ. ӘЙЕЛ. ҚОҒАМ</div>
+            </div>
+            <div class="line-4-jMu" id="316:106"></div>
+            <div class="item--3tP" id="316:107">Гүлмира Әмірханқызы, расскажите о вашем творческом пути. Ваше отношение к науке и вклад в науку. Сравнительно недавно я приняла решение поменять свою фамилию с Қанаевой на Қанай. Во время обучения в Университете Кембридж (Великобритания), у меня возник философский вопрос к самой себе: «Кто я? И чем я отличаюсь от людей, у которых фамилия оканчивается, например, на –ева, -ев?» В центральной библиотеке Университета Кембриджа очень много книг как раз-таки опубликованных в советский период, и многие из них являются историческими, которых сейчас, к сожалению, нет в наших библиотеках, например, первые публикации работ Абая Кунанбаева. И удивительно это отношение к науке, то есть в какой бы стране оно не было произведено – знания хранятся и обогащаются уже последующими поколениями ученых. Соответственно, бережное отношение к науке британских ученых заставило меня задуматься в принципе, кто я есть и чем я хочу заниматься в будущем.</div>
+            <div class="auto-group-b52t-pGB" id="MPMNxFtDL8nXaUh6NBb52t">
+              <div class="auto-group-lcyc-W91" id="MPMP3b4fVWADYuByT1LcYc">
+                <div class="item--oto" id="316:109">Бас редактор: Т.Т. Аяпова – филология ғылымдарының докторы,профессор.</div>
+              </div>
+              <div class="auto-group-py8g-nXm" id="MPMP7qSaxuY2oxQ7Xkpy8G">
+                
+                <img class="icons8-50-1-fbZ" onclick="openDocument('document/doc1.pdf')" src="photo/icon_strelka.png" id="317:112"/>
+              </div>
+            </div>
+          </div>
+          <div class="auto-group-fvnx-jLX" id="MPMNDrwBtZe4aLYXUEFvNx">
+            <div class="group-18-SEw" id="318:122">
+              <div class="auto-group-kqvv-8dZ" id="MPMNMmsfrA5uwZM2AvKqVv">
+                <img class="icons8-64-2-4GK" src="photo/icon_maqala.png" id="317:115"/>
+                <div class="item--Bbq" id="317:118">ТІЛ БІЛІМІНІҢ МӘСЕЛЕЛЕРІ</div>
+              </div>
+              
+              <div class="item--zZH" id="317:119">
+                Жер-су атауларының құрамынан орын алатын антропонимдер – тіл білімінде жан-
+                
+                <br/>
+                <br/>
+                жақты зерттеліп, ғылыми негізі қаланған ономастиканың күрделі бір саласы. Антропонимика
+                
+                <br/>
+                <br/>
+                <br/>
+              </div>
+              <div class="line-8-kqH" id="317:120">
+                <img class="icons8-50-2-4qy" onclick="openDocument('document/doc2.pdf')" src="photo/icon_strelka.png" id="318:121"/>
+              </div>
+              
+            </div>
+            <div class="group-18-SEw" id="318:122">
+              <div class="auto-group-kqvv-8dZ" id="MPMNMmsfrA5uwZM2AvKqVv">
+                <img class="icons8-64-2-4GK" src="photo/icon_maqala.png" id="317:115"/>
+                <div class="item--Bbq" id="317:118">Greetings from the President</div>
+              </div>
+              
+              <div class="item--zZH" id="317:119">
+                Жер-су атауларының құрамынан орын алатын антропонимдер – тіл білімінде жан-
+                
+                <br/>
+                <br/>
+                жақты зерттеліп, ғылыми негізі қаланған ономастиканың күрделі бір саласы. Антропонимика
+                
+                <br/>
+                <br/>
+                <br/>
+              </div>
+              <div class="line-8-kqH" id="317:120">
+                <img class="icons8-50-2-4qy" onclick="openDocument('document/doc2.pdf')" src="photo/icon_strelka.png" id="318:121"/>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="main.js"></script>
+    <script src="js/common_scripts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'website/slick/slick.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'website/lightzoom_v1.1.0/lightzoom.js' %}"></script>
+    <script type="text/javascript">jQuery('.lightzoom').lightzoom({speed: 400, viewTitle: true});</script>
+    <script>
+        $(document).ready(function() {
+            let prevScrollPos = $(window).scrollTop();
+            const nav = $("nav");
+            const scrollThreshold = 100;
+            let isMenuVisible = true;
+          
+            $(window).scroll(function() {
+              let currentScrollPos = $(this).scrollTop();
+              let scrollDifference = Math.abs(currentScrollPos - prevScrollPos);
+          
+              if (scrollDifference >= scrollThreshold) {
+                if (currentScrollPos > prevScrollPos && isMenuVisible) {
+                  nav.animate({ top: `-${nav.outerHeight()}px` }, 300); // Скрыть меню за 300 миллисекунд
+                  isMenuVisible = false;
+                } else if (currentScrollPos < prevScrollPos && !isMenuVisible) {
+                  nav.animate({ top: "0" }, 300); // Показать меню за 300 миллисекунд
+                  isMenuVisible = true;
+                }
+                prevScrollPos = currentScrollPos;
+              }
+            });
+          });
+
+        $('.photo-slide').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            autoplay: true,
+            autoplaySpeed: 3000,
+            centerMode: true
+          });
+
+          $(function(){
+            $('.minimized').click(function(event) {
+              var i_path = $(this).attr('src');
+              $('body').append('<div id="overlay"></div><div id="magnify"><img src="'+i_path+'"><div id="close-popup"><i></i></div></div>');
+              $('#magnify').css({
+                top: 0,
+                left: 0,
+              
+               //left: ($(document).width() - $('#magnify').outerWidth())/2,
+               //top: ($(document).height() - $('#magnify').outerHeight())/2
+              //top: ($(window).height() - $('#magnify').outerHeight())/2
+             });
+              $('#overlay, #magnify').fadeIn('fast');
+            });
+            
+            $('body').on('click', '#close-popup, #overlay', function(event) {
+              event.preventDefault();
+          
+              $('#overlay, #magnify').fadeOut('fast', function() {
+                $('#close-popup, #magnify, #overlay').remove();
+              });
+            });
+          });
+          
+    </script>
+
+    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+    <!--new code-->
+    <script>
+      let players = {}; // Объект для хранения всех Plyr плееров
+
+    
+      function openModal(videoId, modalId) {
+        playerId = "player" + videoId;
+        var modal = document.getElementById(modalId);
+        modal.style.display = "flex";
+        player = new Plyr('#' + playerId); // Инициализация Plyr плеера для конкретного видео
+        player.play();
+        console.log("PlayerId: " + playerId);
+        
+      }
+    
+      function closeModal(videoId, modalId) {
+        var modal = document.getElementById(modalId);
+        console.log(playerId);
+        
+        if (player) {
+            player.pause();
+            player.destroy(); // Уничтожаем Plyr плеер, если он существует
+        }
+        
+        modal.style.display = "none";
+      }
+    
+    </script>
+    
+
+    <!--<script>
+      let player;
+
+      function openModal1() {
+        var modal = document.getElementById('videoModal1');
+        modal.style.display = "flex";
+        player1 = new Plyr('#player1');
+        player1.play();
+      }
+      function closeModal1() {
+        var modal = document.getElementById('videoModal1');
+        player1.pause();
+        player1.destroy(); // Уничтожение Plyr
+        modal.style.display = "none";
+      }
+
+      function openModal2() {
+        var modal = document.getElementById('videoModal2');
+        modal.style.display = "flex";
+        player2 = new Plyr('#player2');
+        player2.play();
+        
+      }
+
+      function closeModal2() {
+        var modal = document.getElementById('videoModal2');
+        player2.pause();
+        player2.destroy(); // Уничтожение Plyr
+        modal.style.display = "none";
+      }
+      function openModal3() {
+        var modal = document.getElementById('videoModal3');
+        modal.style.display = "flex";
+        player3 = new Plyr('#player3');
+        player3.play();
+      }
+
+      function closeModal3() {
+        var modal = document.getElementById('videoModal3');
+        player3.pause();
+        player3.destroy(); // Уничтожение Plyr
+        modal.style.display = "none";
+      }
+    </script>-->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const players = Plyr.setup('.plyr');
+      });
+    </script>
+
+    <script>
+      function openDocument(documentPath) {
+        // Открытие документа в новой вкладке
+        window.open(documentPath, '_blank');
+      }
+      
+    </script>
+
+
+    <!--<script>
+      // Инициализация Plyr для аудио
+      const playerAudio = new Plyr('audio');
+    
+      // Включить функционал Plyr
+      playerAudio.setup();
+    </script>-->
+    
+  
+</body>
+</html>
