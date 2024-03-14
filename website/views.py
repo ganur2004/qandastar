@@ -21,3 +21,6 @@ def video_view(request):
 def audio_view(request):
     audios = Audio.objects.all()
     return render(request, 'audios.html', {'audios': audios})
+
+def photos_html_view(request):
+    return render(request, 'photos.html')
