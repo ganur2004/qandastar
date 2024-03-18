@@ -26,6 +26,7 @@
           <input type="radio" name="slider" id="close-btn">
           <ul class="nav-links">
             <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li><a id="main-page-nav" class="active-nav-links" href="main.html">Басты бет</a></li>
             <li><a href="photos.html">Фото сурет</a></li>
             <li><a href="suhbat.html">Сұхбат</a></li>
             <li><a href="#">Мақала</a></li>
@@ -100,13 +101,19 @@
               <div class="rectangle-21-LR7" id="311:31"></div>
               <div class="group-5-GZf" id="311:30">
                 <p class="item--mmK" id="311:28">
-                  -Өзіңізді таныстырыңыз. Атыңызды, тегіңізді және әкеңіздің аты?
-                  
+                  <b>{{ latest_videos.0.nameVideo }}</b><br>
+                  {% if latest_videos.0.descriptionVideo != "" %}
+                    {{ latest_videos.0.descriptionVideo }}
+                  {% else %}
+                    Бұл біздің сайтымызға жүктелген соңғы видео. Көріп, тамашалаңыз!!!
+                  {% endif %}
                   <br/>
                   <br/>
-                  -Бақытқызы Айнура - 28.08.2023
-                  
-                  <br/>
+                  {% if latest_videos.0.dateOfVideo is not None %}
+                    {{ latest_videos.0.dateOfVideo | date:"d.m.Y" }}
+                  {% else %}
+                    {{ latest_videos.0.uploadDateVideo | date:"d.m.Y" }}
+                  {% endif %}
                 </p>
               </div>  
             </div>
@@ -116,16 +123,19 @@
               <div class="rectangle-21-F69" id="311:37"></div>
               <div class="group-5-NRf" id="311:38">
                 <p class="item--WGy" id="311:39">
-                  -Өзіңізді таныстырыңыз. Атыңызды, тегіңізді және әкеңіздің аты?
-                  
+                  <b>{{ latest_videos.1.nameVideo }}</b><br>
+                  {% if latest_videos.1.descriptionVideo != "" %}
+                    {{ latest_videos.1.descriptionVideo }}
+                  {% else %}
+                    Бұл біздің сайтымызға жүктелген соңғы видео. Көріп, тамашалаңыз!!!
+                  {% endif %}
                   <br/>
                   <br/>
-                  -Менің есімім Бейімбет Ақелік. - 28.08.2023
-                  
-                  <br/>
-                  <br/>
-                  <br/>
-                  <br/>
+                  {% if latest_videos.1.dateOfVideo is not None %}
+                    {{ latest_videos.1.dateOfVideo | date:"d.m.Y" }}
+                  {% else %}
+                    {{ latest_videos.1.uploadDateVideo | date:"d.m.Y" }}
+                  {% endif %}
                 </p>
               </div>
             </div>
@@ -143,7 +153,7 @@
           <div class="auto-group-knx6-Kys" id="MPMRhqxy3MYUPVrDAhsmp8">
             <div class="group-3-Eb3" id="311:24">
               <div class="overlay">
-                <div onclick="openModal3()" class="play-button">
+                <div onclick="openModal('{{ latest_videos.2.id }}', 'videoModal{{ latest_videos.2.id }}')" class="play-button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
                     <circle cx="50" cy="50" r="40" fill="#ff0000" />
                     <polygon points="40,30 40,70 70,50" fill="#ffffff" />
@@ -152,14 +162,21 @@
               </div>
             </div>
             <div class="group-6-C41" id="311:44">
-              
               <div class="group-5-GZf" id="311:46">
                 <p class="item--mmK" id="311:47">
-                  -Өзіңізді таныстырыңыз. Атыңызды, тегіңізді және әкеңіздің аты?
-                  
+                  <b>{{ latest_videos.2.nameVideo }}</b><br>
+                  {% if latest_videos.2.descriptionVideo != "" %}
+                    {{ latest_videos.2.descriptionVideo }}
+                  {% else %}
+                    Бұл біздің сайтымызға жүктелген соңғы видео. Көріп, тамашалаңыз!!!
+                  {% endif %}
                   <br/>
                   <br/>
-                  -Менің есімім Армангүл Абдулали. - 18.09.2023
+                  {% if latest_videos.2.dateOfVideo is not None %}
+                    {{ latest_videos.2.dateOfVideo | date:"d.m.Y" }}
+                  {% else %}
+                    {{ latest_videos.2.uploadDateVideo | date:"d.m.Y" }}
+                  {% endif %}
                 </p>
               </div>
             </div>
@@ -178,7 +195,13 @@
                         Ваш браузер не поддерживает аудио HTML5.
                     </audio>
                 </div>
-                <p class="item-28082023-kbs">{{ audio.uploaded_at }}</p>
+                <p class="item-28082023-kbs">
+                  {% if audio.dateOfAudio is not None %}
+                    {{ audio.dateOfAudio | date:"d.m.Y" }}
+                  {% else %}
+                    {{ audio.uploadDateAudio | date:"d.m.Y" }}
+                  {% endif %}
+                </p>
             </div>
             {% endfor %}
 
@@ -392,22 +415,34 @@
     <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
     <!--new code-->
     <script>
+      // Закрываем модальное окно при нажатии на клавишу "Esc"
       let players = {}; // Объект для хранения всех Plyr плееров
+      var modalIdGlobal;
+      var videoIdGlobal;
 
     
       function openModal(videoId, modalId) {
+        /*console.log(videoId);
+    console.log(modalId);*/
+        modalIdGlobal = modalId;
+        videoIdGlobal = videoId;
         playerId = "player" + videoId;
         var modal = document.getElementById(modalId);
         modal.style.display = "flex";
         player = new Plyr('#' + playerId); // Инициализация Plyr плеера для конкретного видео
         player.play();
+        player.airplay();
         console.log("PlayerId: " + playerId);
-        
+        const nav = $("nav");
+        nav.animate({ top: `-${nav.outerHeight()}px` }, 300);
+        document.body.classList.add("modal-open");
       }
     
       function closeModal(videoId, modalId) {
         var modal = document.getElementById(modalId);
         console.log(playerId);
+        const nav = $("nav");
+        nav.animate({ top: "0" }, 300); // Показать меню за 300 миллисекунд
         
         if (player) {
             player.pause();
@@ -415,6 +450,21 @@
         }
         
         modal.style.display = "none";
+        document.body.classList.remove("modal-open");
+      }
+
+      // Закрываем модальное окно при нажатии на клавишу "Esc"
+      window.onkeydown = function(event) {
+          if (event.key === "Escape") {
+              closeModal(videoIdGlobal, modalIdGlobal);
+          }
+      }
+
+      // Закрываем модальное окно при клике за его пределами
+      window.onclick = function(event) {
+          if (event.target == modalIdGlobal) {
+            closeModal(videoIdGlobal, modalIdGlobal);
+          }
       }
     
     </script>
