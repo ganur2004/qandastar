@@ -1,8 +1,32 @@
-from django.shortcuts import render
-from .models import Photo, Video, Audio
+from django.shortcuts import render, redirect
+from .models import Photo, Video, Audio, Text
 
 
 # Create your views here.
+def change_language(request):
+    language = request.GET.get('language', 'kz')  # Получаем выбранный язык
+    print("Language: ", language)
+    request.session['language'] = language  # Сохраняем выбранный язык в сессии
+    return redirect('main')
+
+def text_view(request, key):
+    language = request.GET.get('language', 'kz')  # Получаем выбранный язык, по умолчанию 'en'
+    print("Language_text: ", language)
+    
+    try:
+        # В зависимости от выбранного языка выбираем соответствующее поле
+        if language == 'kz':
+            text = Text.objects.get(key=key).content_kz
+        elif language == 'ru':
+            text = Text.objects.get(key=key).content_ru
+        else:
+            # Если язык не указан или неизвестен, используем английский по умолчанию
+            text = Text.objects.get(key=key).content_kz
+    except Text.DoesNotExist:
+        text = None
+        
+    return render(request, 'main.html', {'text': text})
+
 def main(request):
     latest_photos = Photo.objects.order_by('-id')[:10]
     latest_audios = Audio.objects.order_by('-id')[:4]

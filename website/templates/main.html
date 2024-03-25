@@ -27,11 +27,17 @@
           <ul class="nav-links">
             <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
             <li><a id="main-page-nav" class="active-nav-links" href="main.html">Басты бет</a></li>
-            <li><a href="photos.html">Фото сурет</a></li>
+            <li><a href="photos.html">{{ text.nav_title_photo }}</a></li>
             <li><a href="suhbat.html">Сұхбат</a></li>
             <li><a href="#">Мақала</a></li>
             <li><a href="#">Сауалнама</a></li>
           </ul>
+          <form action="{% url 'change_language' %}" method="GET">
+            <select id="languageSelect" name="language">
+                <option value="kz">Kazakh</option>
+                <option value="ru">Russian</option>
+            </select>
+          </form>
           <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
         </div>
     </nav>
@@ -568,6 +574,12 @@
         });
       });
     </script>
+
+<script>
+  document.getElementById('languageSelect').addEventListener('change', function() {
+      this.form.submit();
+  });
+  </script>
 
 
     <!--<script>

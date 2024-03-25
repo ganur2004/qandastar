@@ -28,3 +28,8 @@ class Audio(models.Model):
     categoryAudio = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
     dateOfAudio = models.DateField(blank=True, null=True)
     uploadDateAudio = models.DateTimeField(auto_now_add=True)
+
+class Text(models.Model):
+    key = models.CharField(max_length=100, unique=True)
+    content_kz = models.TextField()
+    content_ru = models.TextField()

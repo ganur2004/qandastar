@@ -18,6 +18,8 @@ from django.urls import path
 from website import views
 from django.conf import settings
 from django.conf.urls.static import static
+from website.views import text_view, change_language
+
 
 
 urlpatterns = [
@@ -28,5 +30,7 @@ urlpatterns = [
     path('videos/', views.video_view, name='video_view'),
     path('audios/', views.audio_view, name='audio_view'),
     path('photos.html', views.photos_html_view, name='photos_html_view'),
-    path('suhbat.html', views.suhbat_html_view, name='suhbat_html_view'),    
+    path('suhbat.html', views.suhbat_html_view, name='suhbat_html_view'),  
+    path('text/<str:key>/', text_view, name='text_view'),
+    path('change_language/', change_language, name='change_language'),  
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
