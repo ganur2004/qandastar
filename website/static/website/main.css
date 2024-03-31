@@ -905,7 +905,7 @@ body.modal-open {
   }
 
   /* Стили для модального окна */
-#videoModal1 {
+.videoModalStyle {
   display: none;
   position: fixed;
   z-index: 1;
@@ -952,7 +952,7 @@ body.modal-open {
     position: relative;
     padding: 10px;
     width: auto;
-    height: auto;
+    height: 90%;
     max-width: 90%;
     max-height: 90%;
     margin: auto;
@@ -975,6 +975,7 @@ body.modal-open {
 
 .close:hover,
 .close:focus {
+  color: #aaa !important;
   font-size: 35px;
   text-decoration: none;
   cursor: pointer;
@@ -1133,6 +1134,11 @@ body.modal-open {
 .plyr--video .plyr__control.plyr__tab-focus, .plyr--video .plyr__control:hover, .plyr--video .plyr__control[aria-expanded=true] {
   background: red;
   /*border-radius: 50%;*/
+}
+
+.plyr--video {
+  margin: auto;
+  height: 100%;
 }
 }
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Photo, Video, Audio, Text
+from .models import Photo, Video, Audio, Text, Article
 
 
 # Create your views here.
@@ -35,22 +35,33 @@ def main(request):
 
 
 def photo_view(request):
-    photos = Photo.objects.all()
+    #photos = Photo.objects.all()
+    photos = Photo.objects.all().order_by('-id')  
     return render(request, 'photos.html', {'photos': photos})
 
 def video_view(request):
-    videos = Video.objects.all()
+    #videos = Video.objects.all()
+    videos = Video.objects.all().order_by('-id')  
     return render(request, 'videos.html', {'videos': videos})
 
 def audio_view(request):
-    audios = Audio.objects.all()
+    #audios = Audio.objects.all()
+    audios = Audio.objects.all().order_by('-id') 
     return render(request, 'audios.html', {'audios': audios})
 
+def article_view(request):
+    article = Article.objects.all()
+    return render(request, 'article.html', {'article': article})
+
 def photos_html_view(request):
-    photos = Photo.objects.all()
+    #photos = Photo.objects.all()
+    photos = Photo.objects.all().order_by('-id')  
     return render(request, 'photos.html', {'photos': photos})
 
 def suhbat_html_view(request):
-    videos = Video.objects.all()
-    audios = Audio.objects.all()
+    #videos = Video.objects.all()
+    videos = Video.objects.all().order_by('-id') 
+    #audios = Audio.objects.all()
+    audios = Audio.objects.all().order_by('-id') 
     return render(request, 'suhbat.html', {'videos': videos, 'audios': audios})
+

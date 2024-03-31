@@ -29,7 +29,7 @@
             <li><a id="main-page-nav" class="active-nav-links" href="main.html">Басты бет</a></li>
             <li><a href="photos.html">{{ text.nav_title_photo }}</a></li>
             <li><a href="suhbat.html">Сұхбат</a></li>
-            <li><a href="#">Мақала</a></li>
+            <li><a href="articles">Мақала</a></li>
             <li><a href="#">Сауалнама</a></li>
           </ul>
           <form action="{% url 'change_language' %}" method="GET">
@@ -197,7 +197,14 @@
             <div class="group-10-h7o">
                 <div class="audio-design">
                     <audio controls id="audio-style" class="plyr">
-                        <source src="{{ audio.audio_file.url }}" type="audio/mp4">
+                        <source src="{{ audio.audio_file.url }}" type="audio/mp3">
+                        <source src="{{ audio.audio_file.url }}" type="audio/aac">
+                        <source src="{{ audio.audio_file.url }}" type="audio/wav">
+                        <source src="{{ audio.audio_file.url }}" type="audio/flac">
+                        <source src="{{ audio.audio_file.url }}" type="audio/ogg">
+                        <source src="{{ audio.audio_file.url }}" type="audio/aiff">
+                        <source src="{{ audio.audio_file.url }}" type="audio/alac">
+                        <source src="{{ audio.audio_file.url }}" type="audio/wma">
                         Ваш браузер не поддерживает аудио HTML5.
                     </audio>
                 </div>
@@ -217,11 +224,18 @@
 
 
       {% for video in latest_videos %}
-      <div id="videoModal{{ video.id }}" class="modal">
+      <div id="videoModal{{ video.id }}" class="modal videoModalStyle">
         <span class="close" onclick="closeModal('player{{ video.id }}', 'videoModal{{ video.id }}')">&times;</span>
         <div class="modal-content">
           <video id="player{{ video.id }}" controls width="90%" height="90%">
             <source src="{{ video.video_file.url }}" type="video/mp4">
+            <source src="{{ video.video_file.url }}" type="video/avi">
+            <source src="{{ video.video_file.url }}" type="video/mkv">
+            <source src="{{ video.video_file.url }}" type="video/mov">
+            <source src="{{ video.video_file.url }}" type="video/wmv">
+            <source src="{{ video.video_file.url }}" type="video/flv">
+            <source src="{{ video.video_file.url }}" type="video/webm">
+            <source src="{{ video.video_file.url }}" type="video/mpeg">
             Ваш браузер не поддерживает видео.
           </video>
         </div>

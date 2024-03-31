@@ -71,31 +71,62 @@
                         </svg>
                     </div>
                 </div>
+                <span class="video-title">{{ video.nameVideo }}</span>
+                <span class="video-date">
+                      {% if video.dateOfVideo is not None %}
+                        {{ video.dateOfVideo | date:"d.m.Y" }}
+                      {% else %}
+                        {{ video.uploadDateVideo | date:"d.m.Y" }}
+                      {% endif %}
+                </span>
             </div>
           </div>
           {% endfor %}
         </div>
 
         <div class="audio-items" id="audio-items" style="display:none;">
+          {% for audio in audios %}
           <div class="audio-item-elements">
             <div class="group-10-h7o" id="312:57">
               <div class="audio-design">
                 <audio controls id="audio-style" class="plyr">
-                  <source src="audio/audio1.m4a" type="audio/mp4">
+                  <source src="{{ audio.audio_file.url }}" type="audio/mp3">
+                        <source src="{{ audio.audio_file.url }}" type="audio/aac">
+                        <source src="{{ audio.audio_file.url }}" type="audio/wav">
+                        <source src="{{ audio.audio_file.url }}" type="audio/flac">
+                        <source src="{{ audio.audio_file.url }}" type="audio/ogg">
+                        <source src="{{ audio.audio_file.url }}" type="audio/aiff">
+                        <source src="{{ audio.audio_file.url }}" type="audio/alac">
+                        <source src="{{ audio.audio_file.url }}" type="audio/wma">
                   Ваш браузер не поддерживает аудио HTML5.
                 </audio>
               </div>
-              <p class="item-28082023-kbs" id="312:56">28.08.2023</p>
+              <span class="audio-title">{{ audio.nameAudio }}</span>
+              <span class="audio-date">
+                      {% if audio.dateOfAudio is not None %}
+                        {{ audio.dateOfAudio| date:"d.m.Y" }}
+                      {% else %}
+                        {{ audio.uploadDateAudio | date:"d.m.Y" }}
+                      {% endif %}
+                </span>
             </div>
           </div>
+          {% endfor %}
         </div>
 
         {% for video in videos %}
-            <div id="videoModal{{ video.id }}" class="modal">
+            <div id="videoModal{{ video.id }}" class="modal videoModalStyle">
                 <span class="close" onclick="closeModal('player{{ video.id }}', 'videoModal{{ video.id }}')">&times;</span>
                 <div class="modal-content">
                 <video id="player{{ video.id }}" controls width="90%" height="90%">
-                    <source src="{{ video.video_file.url }}" type="video/mp4">
+                  <source src="{{ video.video_file.url }}" type="video/mp4">
+                  <source src="{{ video.video_file.url }}" type="video/avi">
+                  <source src="{{ video.video_file.url }}" type="video/mkv">
+                  <source src="{{ video.video_file.url }}" type="video/mov">
+                  <source src="{{ video.video_file.url }}" type="video/wmv">
+                  <source src="{{ video.video_file.url }}" type="video/flv">
+                  <source src="{{ video.video_file.url }}" type="video/webm">
+                  <source src="{{ video.video_file.url }}" type="video/mpeg">
                     Ваш браузер не поддерживает видео.
                 </video>
                 </div>
@@ -249,29 +280,56 @@
 
   
     function openModal(videoId, modalId) {
-    console.log(videoId);
-    console.log(modalId);
-      playerId = "player" + videoId;
-      var modal = document.getElementById(modalId);
-      modal.style.display = "flex";
-      player = new Plyr('#' + playerId); // Инициализация Plyr плеера для конкретного видео
-      player.play();
-      console.log("PlayerId: " + playerId);
+        modalIdGlobal = modalId;
+        videoIdGlobal = videoId;
+        playerId = "player" + videoId;
+        var modal = document.getElementById(modalId);
+        modal.style.display = "flex";
+        player = new Plyr('#' + playerId); // Инициализация Plyr плеера для конкретного видео
+        player.play();
+        player.airplay();
+        console.log("PlayerId: " + playerId);
+        const nav = $("nav");
+        nav.animate({ top: `-${nav.outerHeight()}px` }, 300);
+        document.body.classList.add("modal-open");
       
     }
   
     function closeModal(videoId, modalId) {
       var modal = document.getElementById(modalId);
-      console.log(playerId);
-      
-      if (player) {
-          player.pause();
-          player.destroy(); // Уничтожаем Plyr плеер, если он существует
-      }
-      
-      modal.style.display = "none";
+        console.log(playerId);
+        const nav = $("nav");
+        nav.animate({ top: "0" }, 300); // Показать меню за 300 миллисекунд
+        
+        if (player) {
+            player.pause();
+            player.destroy(); // Уничтожаем Plyr плеер, если он существует
+        }
+        
+        modal.style.display = "none";
+        document.body.classList.remove("modal-open");
     }
+
+    // Закрываем модальное окно при нажатии на клавишу "Esc"
+    window.onkeydown = function(event) {
+          if (event.key === "Escape") {
+              closeModal(videoIdGlobal, modalIdGlobal);
+          }
+      }
+
+      // Закрываем модальное окно при клике за его пределами
+      window.onclick = function(event) {
+          if (event.target == modalIdGlobal) {
+            closeModal(videoIdGlobal, modalIdGlobal);
+          }
+      }
   
   </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const players = Plyr.setup('.plyr');
+  });
+</script>
 </body>
 </html>
