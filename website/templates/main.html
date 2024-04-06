@@ -27,17 +27,17 @@
           <ul class="nav-links">
             <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
             <li><a id="main-page-nav" class="active-nav-links" href="main.html">Басты бет</a></li>
-            <li><a href="photos.html">{{ text.nav_title_photo }}</a></li>
+            <li><a href="photos.html">Фото сурет</a></li>
             <li><a href="suhbat.html">Сұхбат</a></li>
             <li><a href="articles">Мақала</a></li>
             <li><a href="#">Сауалнама</a></li>
           </ul>
-          <form action="{% url 'change_language' %}" method="GET">
+          <!--<form action="{% url 'change_language' %}" method="GET">
             <select id="languageSelect" name="language">
                 <option value="kz">Kazakh</option>
                 <option value="ru">Russian</option>
             </select>
-          </form>
+          </form>-->
           <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
         </div>
     </nav>
@@ -280,16 +280,32 @@
           <div class="group-17-oSK" id="317:117">
             <div class="auto-group-qxxa-UYT" id="MPMNrvhmAmQqc4CDHMqXXA">
               <img class="icons8-64-1-xTd" src="{% static 'website/photos/icon_maqala.png' %}" id="316:104"/>
-              <div class="item--UB5" id="316:105">ҒЫЛЫМ. ӘЙЕЛ. ҚОҒАМ</div>
+              <div class="item--UB5" id="316:105">{{ latest_articles.0.nameArticle }}</div>
             </div>
-            <div class="item--3tP" id="316:107">Гүлмира Әмірханқызы, расскажите о вашем творческом пути. Ваше отношение к науке и вклад в науку. Сравнительно недавно я приняла решение поменять свою фамилию с Қанаевой на Қанай. Во время обучения в Университете Кембридж (Великобритания), у меня возник философский вопрос к самой себе: «Кто я? И чем я отличаюсь от людей, у которых фамилия оканчивается, например, на –ева, -ев?» В центральной библиотеке Университета Кембриджа очень много книг как раз-таки опубликованных в советский период, и многие из них являются историческими, которых сейчас, к сожалению, нет в наших библиотеках, например, первые публикации работ Абая Кунанбаева. И удивительно это отношение к науке, то есть в какой бы стране оно не было произведено – знания хранятся и обогащаются уже последующими поколениями ученых. Соответственно, бережное отношение к науке британских ученых заставило меня задуматься в принципе, кто я есть и чем я хочу заниматься в будущем.</div>
+            <div class="item--3tP" id="316:107">
+                <embed src='{{ latest_articles.0.article_file.url }}' type="application/pdf" width="100%" height="100%">
+            </div>
             <div class="auto-group-b52t-pGB" id="MPMNxFtDL8nXaUh6NBb52t">
-              <div class="auto-group-lcyc-W91" id="MPMP3b4fVWADYuByT1LcYc">
-                <div class="item--oto" id="316:109">Бас редактор: Т.Т. Аяпова – филология ғылымдарының докторы,профессор.</div>
+              <div class="auto-group-lcyc-W91" id="MPMP3b4fVWADYuByT1LcYc"> 
+                <div class="item--oto" id="316:109">
+                  {% if latest_articles.0.nameAuthor == "" %}
+                    {% if latest_articles.0.dateOfArticle is None %}
+                      {{ latest_articles.0.uploadDateArticle | date:"d.m.Y" }}
+                    {% else %}
+                      {{ latest_articles.0.dateOfArticle | date:"d.m.Y" }}
+                    {% endif %}
+                  {% else %}
+                    {{ latest_articles.0.nameAuthor }} - 
+                    {% if latest_articles.0.dateOfArticle is None %}
+                      {{ latest_articles.0.uploadDateArticle | date:"d.m.Y" }}
+                    {% else %}
+                      {{ latest_articles.0.dateOfArticle | date:"d.m.Y" }}
+                    {% endif %}
+                  {% endif %}    
+                </div>
               </div>
-              <div class="auto-group-py8g-nXm" id="MPMP7qSaxuY2oxQ7Xkpy8G">
-                
-                <img class="icons8-50-1-fbZ" onclick="openDocument('document/doc1.pdf')" src="{% static 'website/photos/icon_strelka.png' %}" id="317:112"/>
+              <div class="auto-group-py8g-nXm" id="MPMP7qSaxuY2oxQ7Xkpy8G">    
+                <img class="icons8-50-1-fbZ" onclick="openDocument('{{ latest_articles.0.article_file.url }}')" src="{% static 'website/photos/icon_strelka.png' %}" id="317:112"/>
               </div>
             </div>
           </div>
@@ -297,46 +313,26 @@
             <div class="group-18-SEw" id="318:122">
               <div class="auto-group-kqvv-8dZ" id="MPMNMmsfrA5uwZM2AvKqVv">
                 <img class="icons8-64-2-4GK" src="{% static 'website/photos/icon_maqala.png' %}" id="317:115"/>
-                <div class="item--Bbq" id="317:118">ТІЛ БІЛІМІНІҢ МӘСЕЛЕЛЕРІ</div>
+                <div class="item--Bbq" id="317:118">{{ latest_articles.1.nameArticle }}</div>
               </div>
-              
               <div class="item--zZH" id="317:119">
-                Жер-су атауларының құрамынан орын алатын антропонимдер – тіл білімінде жан-
-                
-                <br/>
-                <br/>
-                жақты зерттеліп, ғылыми негізі қаланған ономастиканың күрделі бір саласы. Антропонимика
-                
-                <br/>
-                <br/>
-                <br/>
+                <embed src='{{ latest_articles.1.article_file.url }}' type="application/pdf" width="100%" height="100%">
               </div>
               <div class="line-8-kqH" id="317:120">
-                <img class="icons8-50-2-4qy" onclick="openDocument('document/doc2.pdf')" src="{% static 'website/photos/icon_strelka.png' %}" id="318:121"/>
+                <img class="icons8-50-2-4qy" onclick="openDocument('{{ latest_articles.1.article_file.url }}')" src="{% static 'website/photos/icon_strelka.png' %}" id="318:121"/>
               </div>
-              
             </div>
             <div class="group-18-SEw" id="318:122">
               <div class="auto-group-kqvv-8dZ" id="MPMNMmsfrA5uwZM2AvKqVv">
                 <img class="icons8-64-2-4GK" src="{% static 'website/photos/icon_maqala.png' %}" id="317:115"/>
-                <div class="item--Bbq" id="317:118">Greetings from the President</div>
+                <div class="item--Bbq" id="317:118">{{ latest_articles.2.nameArticle }}</div>
               </div>
-              
               <div class="item--zZH" id="317:119">
-                Жер-су атауларының құрамынан орын алатын антропонимдер – тіл білімінде жан-
-                
-                <br/>
-                <br/>
-                жақты зерттеліп, ғылыми негізі қаланған ономастиканың күрделі бір саласы. Антропонимика
-                
-                <br/>
-                <br/>
-                <br/>
+                <embed src='{{ latest_articles.2.article_file.url }}' type="application/pdf" width="100%" height="100%">
               </div>
               <div class="line-8-kqH" id="317:120">
-                <img class="icons8-50-2-4qy" onclick="openDocument('document/doc2.pdf')" src="{% static 'website/photos/icon_strelka.png' %}" id="318:121"/>
+                <img class="icons8-50-2-4qy" onclick="openDocument('{{ latest_articles.2.article_file.url }}')" src="{% static 'website/photos/icon_strelka.png' %}" id="318:121"/>
               </div>
-              
             </div>
           </div>
         </div>
@@ -594,6 +590,27 @@
       this.form.submit();
   });
   </script>
+
+<script>
+  window.onload = function() {
+      var classDivHeight = document.querySelector('.group-17-oSK').offsetHeight;
+      console.log(classDivHeight);
+      var firstDivHeight = document.querySelector('.auto-group-qxxa-UYT').offsetHeight;
+      console.log(firstDivHeight);
+      var secondDivHeight = document.querySelector('.auto-group-b52t-pGB').offsetHeight;
+      console.log(secondDivHeight);
+      document.querySelector('.item--3tP').style.height = classDivHeight - (2 * (firstDivHeight + secondDivHeight)) + 'px';
+
+      var classDivHeightSecond = document.querySelector('.group-18-SEw').offsetHeight;
+      console.log(classDivHeightSecond);
+      var firstDivHeightSecond = document.querySelector('.auto-group-kqvv-8dZ').offsetHeight;
+      console.log(firstDivHeightSecond);
+      var secondDivHeightSecond = document.querySelector('.line-8-kqH').offsetHeight;
+      console.log(secondDivHeightSecond);
+      document.querySelector('.item--zZH').style.height = classDivHeightSecond - (2 * (firstDivHeightSecond + secondDivHeightSecond)) + 'px';
+  };
+</script>
+
 
 
     <!--<script>

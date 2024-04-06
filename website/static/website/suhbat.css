@@ -140,7 +140,6 @@ body {
   display: flex;
   flex-wrap: wrap; /* Позволяет изображениям переноситься на новую строку при нехватке места */
   justify-content: space-around; /* Равномерное распределение изображений по ширине галереи */
-  align-items: center; /* Центрирование изображений по вертикали */
   height: fit-content;
   max-height: 95%;
   overflow-y: scroll;
@@ -170,17 +169,17 @@ body {
         vertical-align: top;
         width: 8.1rem;
       }
+    }
 
-      .video-title {
-        font-weight: bold;
-        font-size: 20px;
-      }
-      
-      .video-date {
-        font-style: italic;
-        font-size: 15px;
-        float: right;
-      }
+    .video-title {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    
+    .video-date {
+      font-style: italic;
+      font-size: 15px;
+      float: right;
     }
   }
 }

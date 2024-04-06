@@ -31,7 +31,8 @@ def main(request):
     latest_photos = Photo.objects.order_by('-id')[:10]
     latest_audios = Audio.objects.order_by('-id')[:4]
     latest_videos = Video.objects.order_by('-id')[:3]
-    return render(request, 'main.html', {'latest_photos': latest_photos, 'latest_audios': latest_audios, 'latest_videos': latest_videos})
+    latest_articles = Article.objects.order_by('-id')[:3]
+    return render(request, 'main.html', {'latest_photos': latest_photos, 'latest_audios': latest_audios, 'latest_videos': latest_videos, 'latest_articles': latest_articles})
 
 
 def photo_view(request):
@@ -50,8 +51,8 @@ def audio_view(request):
     return render(request, 'audios.html', {'audios': audios})
 
 def article_view(request):
-    article = Article.objects.all()
-    return render(request, 'article.html', {'article': article})
+    articles = Article.objects.all().order_by('-id') 
+    return render(request, 'article.html', {'articles': articles})
 
 def photos_html_view(request):
     #photos = Photo.objects.all()
