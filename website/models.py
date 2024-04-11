@@ -1,5 +1,5 @@
 from django.db import models
-import PyPDF2, docx2txt, os
+import os
 
 # Create your models here.
 class Category(models.Model):
