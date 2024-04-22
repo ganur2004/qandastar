@@ -44,4 +44,13 @@ class Article(models.Model):
     dateOfArticle = models.DateField(blank=True, null=True)
     uploadDateArticle = models.DateTimeField(auto_now_add=True)
 
+class News(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    publication_date = models.DateTimeField(auto_now_add=True)
+
+class NewsImage(models.Model):
+    news = models.ForeignKey(News, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='news_images/')
+
     

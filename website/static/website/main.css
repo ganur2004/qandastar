@@ -88,6 +88,7 @@ body.modal-open {
   padding: 5vh 2vw 5vh 2vw;
   position: relative;
   width: 100%;
+  border-bottom: 1px solid black;
 
   .group-20-djz {
     display: flex;
@@ -252,6 +253,152 @@ body.modal-open {
     }
 
 
+  }
+}
+
+
+/*News style*/
+.news-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding: 5vh 4vw 5vh 4vw;
+  background-color: #f2f4f3;
+
+  .news-section-title {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    /*justify-content: center;*/
+
+    #news-section-title {
+      color: #0a0908;
+      font-family: Inter, 'Source Sans Pro';
+      font-size: 3.5vw;
+      font-weight: 900;
+      left: 0;
+      line-height: 1.2125;
+      text-decoration-line: underline;
+      top: 0;
+      white-space: nowrap;
+      margin-bottom: 1vh;
+    }
+  }
+
+  .news-section-content {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+
+    .slick-prev:before, .slick-next:before {
+      font-size: 30px; /* Размер стрелок */
+      color: black; /* Цвет, подобранный в соответствии с дизайном */
+    }
+
+    .news-section-content-second {
+      display: flex;
+
+      .news-section-content-title {
+        position: relative;
+        width: 100%;
+        flex: 1;
+        height: 100%;
+        display: flex;
+        padding: 10px 20px 10px 10px;
+        flex-direction: column;
+        
+
+        #content-title-name {
+          color: black;
+          font-size: large;
+          font-family: Inter, 'Source Sans Pro';
+          margin-bottom: 1vh;
+          font-weight: bold;
+        }
+
+        #content-title-description {
+          color: black;
+          font-size: medium;
+          font-family: Inter, 'Source Sans Pro';
+        }
+      }
+
+      .news-section-content-image {
+        flex: 2;
+        width: 60vw;
+        height: 60vh;
+        
+      
+
+      #content-image {
+          width: 100%; /* Изображение займет всю доступную ширину контейнера */
+          height: 80vh; /* Высота автоматически подстраивается для соответствия */
+          object-fit: cover; /* Изображение будет заполнено внутри своего контейнера */
+          object-position: 50% 50%;
+        }
+      }
+    }
+    
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .news-section {
+    height: fit-content;
+    padding: 5vh 4vw 5vh 4vw;
+
+ 
+    .news-section-content {
+      width: 90%;
+      height: 80vh;
+      display: flex;
+      margin-right: auto;
+      margin-left: auto;
+  
+      .slick-prev:before, .slick-next:before {
+        font-size: 20px; /* Размер стрелок */
+        color: black; /* Цвет, подобранный в соответствии с дизайном */
+      }
+  
+      .news-section-content-second {
+        display: flex;
+        flex-direction: column;
+
+        .news-section-content-title {
+          height: fit-content;
+  
+          #content-title-name {
+            color: black;
+            font-size: large;
+            font-family: Inter, 'Source Sans Pro';
+            margin-bottom: 0px;
+            font-weight: bold;
+          }
+  
+          #content-title-description {
+            color: black;
+            font-size: medium;
+            font-family: Inter, 'Source Sans Pro';
+          }
+        }
+
+  
+        .news-section-content-image {
+          width: 100%;
+          height: 60vh;
+          
+        
+  
+        #content-image {
+            width: 100%; /* Изображение займет всю доступную ширину контейнера */
+            height: 80vh; /* Высота автоматически подстраивается для соответствия */
+            object-fit: cover; /* Изображение будет заполнено внутри своего контейнера */
+            object-position: 50% 50%;
+          }
+        }
+      }
+      
+    }
   }
 }
   

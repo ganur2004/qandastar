@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Photo, Video, Audio, Text, Article
+from .models import Photo, Video, Audio, Text, Article, News
 
 
 # Create your views here.
@@ -32,7 +32,14 @@ def main(request):
     latest_audios = Audio.objects.order_by('-id')[:4]
     latest_videos = Video.objects.order_by('-id')[:3]
     latest_articles = Article.objects.order_by('-id')[:3]
-    return render(request, 'main.html', {'latest_photos': latest_photos, 'latest_audios': latest_audios, 'latest_videos': latest_videos, 'latest_articles': latest_articles})
+    latest_news = News.objects.all().order_by('-id')
+
+    news_images = {}
+    for news_item in latest_news:
+        images = news_item.images.all()  # Получаем первые три изображения для каждой новости
+        news_images[news_item.id] = images
+    print("News images: ", news_images)
+    return render(request, 'main.html', {'latest_photos': latest_photos, 'latest_audios': latest_audios, 'latest_videos': latest_videos, 'latest_articles': latest_articles, 'latest_news': latest_news, 'news_images': news_images})
 
 
 def photo_view(request):
