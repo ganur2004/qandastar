@@ -1,5 +1,5 @@
 from django.db import models
-import PyPDF2, docx2txt, os
+import os
 
 # Create your models here.
 class Category(models.Model):
@@ -53,4 +53,4 @@ class NewsImage(models.Model):
     news = models.ForeignKey(News, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='news_images/')
 
-    
+
