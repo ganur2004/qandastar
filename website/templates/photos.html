@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QANDASTAR</title>
+    <title>Фото сурет</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'website/photos/favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'website/photos.css' %}">
     <link rel="stylesheet" href="{% static 'website/menu.css' %}">
     <link rel="stylesheet" href="{% static 'website/footer.css' %}">
@@ -22,16 +23,16 @@
 <body>
     <nav>
         <div class="wrapper" id="wrapper">
-          <div class="logo"><a href="main.html"></a></div>
+          <div class="logo"><a href="main.html" title="Басты бет"></a></div>
           <input type="radio" name="slider" id="menu-btn">
           <input type="radio" name="slider" id="close-btn">
           <ul class="nav-links">
             <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-            <li><a id="main-page-nav" href="main.html">Басты бет</a></li>
-            <li><a href="photos.html" class="active-nav-links">Фото сурет</a></li>
-            <li><a href="suhbat.html">Сұхбат</a></li>
-            <li><a href="#">Мақала</a></li>
-            <li><a href="#">Сауалнама</a></li>
+            <li><a id="main-page-nav" href="main.html" title="Басты бет">Басты бет</a></li>
+            <li><a href="photos.html" class="active-nav-links" title="Фото сурет">Фото сурет</a></li>
+            <li><a href="suhbat.html" title="Сұхбат">Сұхбат</a></li>
+            <li><a href="article.html" title="Мақала">Мақала</a></li>
+            <!--<li><a href="#">Сауалнама</a></li>-->
           </ul>
           <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
         </div>
@@ -72,8 +73,6 @@
 
     {% include 'footer.html' %}
 
-    <!--<script src="main.js"></script>
-    <script src="js/common_scripts.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -109,7 +108,6 @@
           $(function(){
             function updateSlider() {
                 var isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
-                console.log(isMobile);
                 
                 slickOptions = {
                     dots: true,

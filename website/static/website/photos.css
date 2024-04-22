@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 .photo-first-block {
     display: flex;
     height: 100vh;
@@ -137,14 +143,16 @@
           }
 
           .photo-title {
+            float: left;
             font-weight: bold;
-            font-size: 20px;
+            line-height: normal;
+            font-size: 15px;
           }
           
           .photo-date {
+            float: right;
             font-style: italic;
             font-size: 15px;
-            float: right;
           }
         }
     }

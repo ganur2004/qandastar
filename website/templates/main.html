@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QANDASTAR</title>
+    <title>QANDASTAR | Басты бет</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'website/photos/favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'website/main.css' %}">
     <link rel="stylesheet" href="{% static 'website/menu.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -26,11 +27,11 @@
           <input type="radio" name="slider" id="close-btn">
           <ul class="nav-links">
             <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-            <li><a id="main-page-nav" class="active-nav-links" href="main.html">Басты бет</a></li>
-            <li><a href="photos.html">Фото сурет</a></li>
-            <li><a href="suhbat.html">Сұхбат</a></li>
-            <li><a href="articles">Мақала</a></li>
-            <li><a href="#">Сауалнама</a></li>
+            <li><a id="main-page-nav" class="active-nav-links" href="main.html" title="Басты бет">Басты бет</a></li>
+            <li><a href="photos.html" title="Фото сурет">Фото сурет</a></li>
+            <li><a href="suhbat.html" title="Сұхбат">Сұхбат</a></li>
+            <li><a href="article.html" title="Мақала">Мақала</a></li>
+            <!--<li><a href="#">Сауалнама</a></li>-->
           </ul>
           <!--<form action="{% url 'change_language' %}" method="GET">
             <select id="languageSelect" name="language">
@@ -56,20 +57,48 @@
             <div class="item--8Tn" id="306:15">Біздің әлеуметтік-мәдени интеграция әуесқойларының қауымдастығына қош келдіңіз. Алда сізді біздің ұйымның жұмыстары мен еңбектеріне саяхат күтіп тұр.</div>
             <div class="auto-group-fgqu-Grp" id="VKbZwsdpxFRk3zLtjuFgQU">
                 <div class="auto-group-yw5w-Zb2" id="VKbaBha84RZ4YXG3zDyw5W">
-                    <div class="item--5JU" id="306:17"><a href="#" class="scrollToElement" data-target=".photo-E4h">Фото сурет</a></div>
+                    <div class="item--5JU" id="news-section"><a href="#" class="scrollToElement" data-target=".news-section">Жаңалықтар</a></div>
+                </div>
+                <div class="auto-group-yw5w-Zb2" id="VKbaBha84RZ4YXG3zDyw5W">
+                    <div class="item--5JU" id="photo-E4h"><a href="#" class="scrollToElement" data-target=".photo-E4h">Фото сурет</a></div>
                 </div>
                 <div class="auto-group-yw5w-Zb2" id="VKbaHhQ8VTrDGFKYTQCfnC">
-                    <div class="item--5JU" id="306:18"><a href="#" class="scrollToElement" data-target=".suhbat-Zvq">Сұхбат</a></div>
+                    <div class="item--5JU" id="suhbat-Zvq"><a href="#" class="scrollToElement" data-target=".suhbat-Zvq">Сұхбат</a></div>
                 </div>
                 <div class="auto-group-yw5w-Zb2" id="VKbaNhFoWzmAs237r3ichS">
-                    <div class="item--5JU" id="306:19"><a href="#" class="scrollToElement" data-target=".maqala-nZq">Мақала</a></div>
+                    <div class="item--5JU" id="maqala-nZq"><a href="#" class="scrollToElement" data-target=".maqala-nZq">Мақала</a></div>
                 </div>
-                <div class="auto-group-nxmj-EW8" id="VKbaTmwfpzHp4ChXAEnxmJ">
+                <!--<div class="auto-group-nxmj-EW8" id="VKbaTmwfpzHp4ChXAEnxmJ">
                     <div class="item--Aeg" id="306:20">Сауалнама</div>
                 </div>
-                <div class="item--ohe" id="306:21">Статистика</div>
+                <div class="item--ohe" id="306:21">Статистика</div>-->
             </div>
         </div>
+    </div>
+
+    <div class="news-section">
+      <div class="news-section-title">
+        <span id="news-section-title">Жаңалықтар</span>
+      </div>
+      <div class="news-section-content">
+        {% for  news in latest_news %}
+        <div class="news-section-content-second">
+          <div class="news-section-content-title">
+            <span id="content-title-name">{{ news.title }}</span><br>
+            <span id="content-title-description">{{ news.content }}</span>
+          </div>
+          <div class="news-section-content-image">
+            {% for key, news_photos in news_images.items %}
+              {% if  key == news.id %}
+                {% for news_photo in news_photos %}
+                  <div><a href="{{ news_photo.image.url }}" class="lightzoom"><img id="content-image" src="{{ news_photo.image.url }}"></a></div>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
 
     <div class="photo-E4h" id="306:22">
@@ -77,7 +106,7 @@
       <div class="auto-group-i1rc-MMb" id="MPMUZBP9LEkX91ELfmi1rC">
         <div class="photo-slide">
             {% for photo in latest_photos %}
-            <div><a href="{{ photo.image.url }}" class="lightzoom"><img src="{{ photo.image.url }}"></a></div>
+            <div><a href="{{ photo.image.url }}" class="lightzoom"><img alt="{{ photo.nameImage }}" src="{{ photo.image.url }}"></a></div>
             {% endfor %}
         </div>
       </div>
@@ -340,8 +369,6 @@
 
       {% include 'footer.html' %}
 
-    <script src="main.js"></script>
-    <script src="js/common_scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -377,7 +404,6 @@
           $(function(){
             function updateSlider() {
                 var isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
-                console.log(isMobile);
                 
                 slickOptions = {
                     dots: true,
@@ -399,8 +425,35 @@
               updateSlider();
               $('.photo-slide').slick(slickOptions);
             });
-           
-        });
+          });
+
+          $('.news-section-content-image').slick({
+                    dots: false,
+                    infinite: true,
+                    speed: 500,
+                    fade: true,
+                    cssEase: 'ease',
+                    autoplay: true,
+                    autoplaySpeed: 500,
+                    centerMode: true,
+                    mobileFirst: true,
+                    adaptiveHeight: false, // Оставляем true, чтобы высота слайдера корректно адаптировалась
+                    arrows: false // Всегда показываем стрелки на десктопе
+          });
+
+          $('.news-section-content').slick({
+                    dots: false,
+                    infinite: true,
+                    speed: 500,
+                    autoplay: true,
+                    fade: true,
+                    cssEase: 'ease',
+                    autoplaySpeed: 5000,
+                    centerMode: true,
+                    mobileFirst: true,
+                    adaptiveHeight: false, // Оставляем true, чтобы высота слайдера корректно адаптировалась
+                    arrows: true // Всегда показываем стрелки на десктопе
+          });
 
           $(function(){
             $('.minimized').click(function(event) {
@@ -438,8 +491,6 @@
 
     
       function openModal(videoId, modalId) {
-        /*console.log(videoId);
-    console.log(modalId);*/
         modalIdGlobal = modalId;
         videoIdGlobal = videoId;
         playerId = "player" + videoId;
@@ -448,7 +499,6 @@
         player = new Plyr('#' + playerId); // Инициализация Plyr плеера для конкретного видео
         player.play();
         player.airplay();
-        console.log("PlayerId: " + playerId);
         const nav = $("nav");
         nav.animate({ top: `-${nav.outerHeight()}px` }, 300);
         document.body.classList.add("modal-open");
@@ -456,7 +506,6 @@
     
       function closeModal(videoId, modalId) {
         var modal = document.getElementById(modalId);
-        console.log(playerId);
         const nav = $("nav");
         nav.animate({ top: "0" }, 300); // Показать меню за 300 миллисекунд
         
@@ -585,28 +634,22 @@
       });
     </script>
 
-<script>
+  <!--<script>
   document.getElementById('languageSelect').addEventListener('change', function() {
       this.form.submit();
   });
-  </script>
+  </script>-->
 
 <script>
   window.onload = function() {
       var classDivHeight = document.querySelector('.group-17-oSK').offsetHeight;
-      console.log(classDivHeight);
       var firstDivHeight = document.querySelector('.auto-group-qxxa-UYT').offsetHeight;
-      console.log(firstDivHeight);
       var secondDivHeight = document.querySelector('.auto-group-b52t-pGB').offsetHeight;
-      console.log(secondDivHeight);
       document.querySelector('.item--3tP').style.height = classDivHeight - (2 * (firstDivHeight + secondDivHeight)) + 'px';
 
       var classDivHeightSecond = document.querySelector('.group-18-SEw').offsetHeight;
-      console.log(classDivHeightSecond);
       var firstDivHeightSecond = document.querySelector('.auto-group-kqvv-8dZ').offsetHeight;
-      console.log(firstDivHeightSecond);
       var secondDivHeightSecond = document.querySelector('.line-8-kqH').offsetHeight;
-      console.log(secondDivHeightSecond);
       document.querySelector('.item--zZH').style.height = classDivHeightSecond - (2 * (firstDivHeightSecond + secondDivHeightSecond)) + 'px';
   };
 </script>

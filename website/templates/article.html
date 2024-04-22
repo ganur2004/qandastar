@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QANDASTAR</title>
+    <title>Мақала</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'website/photos/favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'website/article.css' %}">
     <link rel="stylesheet" href="{% static 'website/menu.css' %}">
     <link rel="stylesheet" href="{% static 'website/footer.css' %}">
@@ -22,16 +23,16 @@
 <body>
     <nav>
         <div class="wrapper" id="wrapper">
-          <div class="logo"><a href="main.html"></a></div>
+          <div class="logo"><a href="main.html" title="Басты бет"></a></div>
           <input type="radio" name="slider" id="menu-btn">
           <input type="radio" name="slider" id="close-btn">
           <ul class="nav-links">
             <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-            <li><a id="main-page-nav" href="main.html">Басты бет</a></li>
-            <li><a href="photos.html">Фото сурет</a></li>
-            <li><a href="suhbat.html">Сұхбат</a></li>
-            <li><a href="article.html" class="active-nav-links">Мақала</a></li>
-            <li><a href="#">Сауалнама</a></li>
+            <li><a id="main-page-nav" href="main.html" title="Басты бет">Басты бет</a></li>
+            <li><a href="photos.html" title="Фото сурет">Фото сурет</a></li>
+            <li><a href="suhbat.html" title="Сұхбат">Сұхбат</a></li>
+            <li><a href="article.html" class="active-nav-links" title="Мақала">Мақала</a></li>
+            <!--<li><a href="#">Сауалнама</a></li>-->
           </ul>
           <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
         </div>

@@ -171,7 +171,7 @@ body {
       }
     }
 
-    .video-title {
+    /*.video-title {
       font-weight: bold;
       font-size: 20px;
     }
@@ -180,6 +180,25 @@ body {
       font-style: italic;
       font-size: 15px;
       float: right;
+    }*/
+
+    .video-info {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      
+      .video-title {
+        float: left;
+        font-weight: bold;
+        line-height: normal;
+        font-size: 15px;
+      }
+  
+      .video-date {
+        float: right;
+        font-style: italic;
+        font-size: 15px;
+      }
     }
   }
 }
@@ -216,15 +235,21 @@ body {
         border-radius: 1rem;
       }
 
-      .audio-title {
-        font-weight: bold;
-        font-size: 20px;
-      }
-      
-      .audio-date {
-        font-style: italic;
-        font-size: 15px;
-        float: right;
+      .audio-info {
+        width: 100%;
+
+        .audio-title {
+          float: left;
+          font-weight: bold;
+          line-height: normal;
+          font-size: 15px;
+        }
+        
+        .audio-date {
+          float: right;
+          font-style: italic;
+          font-size: 15px;
+        }
       }
     }
   }

@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QANDASTAR</title>
+    <title>Сұхбат</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'website/photos/favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'website/suhbat.css' %}">
     <link rel="stylesheet" href="{% static 'website/main.css' %}">
     <link rel="stylesheet" href="{% static 'website/menu.css' %}">
@@ -24,16 +25,16 @@
 
     <nav>
         <div class="wrapper" id="wrapper">
-          <div class="logo"><a href="main.html"></a></div>
+          <div class="logo"><a href="main.html" title="Басты бет"></a></div>
           <input type="radio" name="slider" id="menu-btn">
           <input type="radio" name="slider" id="close-btn">
           <ul class="nav-links">
             <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-            <li><a id="main-page-nav" href="main.html">Басты бет</a></li>
-            <li><a href="photos.html">Фото сурет</a></li>
-            <li><a href="suhbat.html" class="active-nav-links">Сұхбат</a></li>
-            <li><a href="#">Мақала</a></li>
-            <li><a href="#">Сауалнама</a></li>
+            <li><a id="main-page-nav" href="main.html" title="Басты бет">Басты бет</a></li>
+            <li><a href="photos.html" title="Фото сурет">Фото сурет</a></li>
+            <li><a href="suhbat.html" class="active-nav-links" title="Сұхбат">Сұхбат</a></li>
+            <li><a href="article.html" title="Мақала">Мақала</a></li>
+            <!--<li><a href="#">Сауалнама</a></li>-->
           </ul>
           <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
         </div>
@@ -71,14 +72,16 @@
                         </svg>
                     </div>
                 </div>
-                <span class="video-title">{{ video.nameVideo }}</span>
-                <span class="video-date">
-                      {% if video.dateOfVideo is not None %}
-                        {{ video.dateOfVideo | date:"d.m.Y" }}
-                      {% else %}
-                        {{ video.uploadDateVideo | date:"d.m.Y" }}
-                      {% endif %}
-                </span>
+                <div class="video-info">
+                  <span class="video-title">{{ video.nameVideo }}</span><br>
+                  <span class="video-date">
+                        {% if video.dateOfVideo is not None %}
+                          {{ video.dateOfVideo | date:"d.m.Y" }}
+                        {% else %}
+                          {{ video.uploadDateVideo | date:"d.m.Y" }}
+                        {% endif %}
+                  </span>
+                </div>
             </div>
           </div>
           {% endfor %}
@@ -101,14 +104,16 @@
                   Ваш браузер не поддерживает аудио HTML5.
                 </audio>
               </div>
-              <span class="audio-title">{{ audio.nameAudio }}</span>
-              <span class="audio-date">
-                      {% if audio.dateOfAudio is not None %}
-                        {{ audio.dateOfAudio| date:"d.m.Y" }}
-                      {% else %}
-                        {{ audio.uploadDateAudio | date:"d.m.Y" }}
-                      {% endif %}
+              <div class="audio-info">
+                <span class="audio-title">{{ audio.nameAudio }}</span><br>
+                <span class="audio-date">
+                        {% if audio.dateOfAudio is not None %}
+                          {{ audio.dateOfAudio| date:"d.m.Y" }}
+                        {% else %}
+                          {{ audio.uploadDateAudio | date:"d.m.Y" }}
+                        {% endif %}
                 </span>
+              </div>
             </div>
           </div>
           {% endfor %}
@@ -177,7 +182,7 @@
           $(function(){
             function updateSlider() {
                 var isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
-                console.log(isMobile);
+
                 
                 slickOptions = {
                     dots: true,
@@ -288,7 +293,6 @@
         player = new Plyr('#' + playerId); // Инициализация Plyr плеера для конкретного видео
         player.play();
         player.airplay();
-        console.log("PlayerId: " + playerId);
         const nav = $("nav");
         nav.animate({ top: `-${nav.outerHeight()}px` }, 300);
         document.body.classList.add("modal-open");
@@ -297,7 +301,6 @@
   
     function closeModal(videoId, modalId) {
       var modal = document.getElementById(modalId);
-        console.log(playerId);
         const nav = $("nav");
         nav.animate({ top: "0" }, 300); // Показать меню за 300 миллисекунд
         
