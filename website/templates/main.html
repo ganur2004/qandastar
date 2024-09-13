@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QANDASTAR | Басты бет</title>
+    <link rel="stylesheet" href="{% static 'website/styles.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'website/photos/favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'website/main.css' %}">
     <link rel="stylesheet" href="{% static 'website/menu.css' %}">
@@ -21,6 +22,7 @@
 </head>
 <body>
     <nav>
+        <div class="img"></div>
         <div class="wrapper" id="wrapper">
           <div class="logo"><a href="main.html" title="Басты бет"></a></div>
           <input type="radio" name="slider" id="menu-btn">
@@ -28,10 +30,9 @@
           <ul class="nav-links">
             <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
             <li><a id="main-page-nav" class="active-nav-links" href="main.html" title="Басты бет">Басты бет</a></li>
-            <li><a href="photos.html" title="Фото сурет">Фото сурет</a></li>
+            <li><a href="photos.html" title="Фото сурет">Жаңалықтар</a></li>
             <li><a href="suhbat.html" title="Сұхбат">Сұхбат</a></li>
             <li><a href="article.html" title="Мақала">Мақала</a></li>
-            <!--<li><a href="#">Сауалнама</a></li>-->
           </ul>
           <!--<form action="{% url 'change_language' %}" method="GET">
             <select id="languageSelect" name="language">
@@ -45,16 +46,21 @@
       
     
     <div class="main-sector-7dn col-lg-12 col-md-12 col-sm-12" id="306:6">
-      <div class="rectangle-2-j9N" id="306:9">
-          <p class="item--MgY text-justify text-center col-lg-10 col-md-10 col-sm-10">
-              Моңғолия мен Қытай этникалық қазақтарының Қазақстан Республикасына интеграциялану механизмі: әлеуметтік-мәдени және лингвистикалық-экологиялық мониторинг
-          </p>
+      <div class="image-container">
+        <div class="image-people"></div>
+      </div>
+        <div class="container">
+        <div class="text-container">
+            <p class="item--MgY text-justify text-center col-lg-10 col-md-10 col-sm-10">
+                Моңғолия мен Қытай этникалық қазақтарының Қазақстан Республикасына интеграциялану механизмі: әлеуметтік-мәдени және лингвистикалық-экологиялық мониторинг
+            </p>
+        </div>
       </div>
     </div>
 
     <div class="welcome-sector-s6c" id="306:14">
         <div class="group-20-djz" id="336:2">
-            <div class="item--8Tn" id="306:15">Біздің әлеуметтік-мәдени интеграция әуесқойларының қауымдастығына қош келдіңіз. Алда сізді біздің ұйымның жұмыстары мен еңбектеріне саяхат күтіп тұр.</div>
+{#            <div class="item--8Tn" id="306:15">Біздің әлеуметтік-мәдени интеграция әуесқойларының қауымдастығына қош келдіңіз. Алда сізді біздің ұйымның жұмыстары мен еңбектеріне саяхат күтіп тұр.</div>#}
             <div class="auto-group-fgqu-Grp" id="VKbZwsdpxFRk3zLtjuFgQU">
                 <div class="auto-group-yw5w-Zb2" id="VKbaBha84RZ4YXG3zDyw5W">
                     <div class="item--5JU" id="news-section"><a href="#" class="scrollToElement" data-target=".news-section">Жаңалықтар</a></div>
@@ -76,33 +82,33 @@
         </div>
     </div>
 
-    <div class="news-section">
-      <div class="news-section-title">
-        <span id="news-section-title">Жаңалықтар</span>
-      </div>
-      <div class="news-section-content">
-        {% for  news in latest_news %}
-        <div class="news-section-content-second">
-          <div class="news-section-content-title">
-            <span id="content-title-name">{{ news.title }}</span><br>
-            <span id="content-title-description">{{ news.content }}</span>
-          </div>
-          <div class="news-section-content-image">
-            {% for key, news_photos in news_images.items %}
-              {% if  key == news.id %}
-                {% for news_photo in news_photos %}
-                  <div><a href="{{ news_photo.image.url }}" class="lightzoom"><img id="content-image" src="{{ news_photo.image.url }}"></a></div>
-                {% endfor %}
-              {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
+{#    <div class="news-section">#}
+{#      <div class="news-section-title">#}
+{#        <span id="news-section-title">Жаңалықтар</span>#}
+{#      </div>#}
+{#      <div class="news-section-content">#}
+{#      {% for  news in latest_news %}#}
+{#       <div class="news-section-content-second">#}
+{#          <div class="news-section-content-title">#}
+{#            <span id="content-title-name">{{ news.title }}</span><br>#}
+{#           <span id="content-title-description">{{ news.content }}</span>#}
+{#          </div>#}
+{#          <div class="news-section-content-image">#}
+{#            {% for key, news_photos in news_images.items %}#}
+{#              {% if  key == news.id %}#}
+{#                {% for news_photo in news_photos %}#}
+{#                  <div><a href="{{ news_photo.image.url }}" class="lightzoom"><img id="content-image" src="{{ news_photo.image.url }}"></a></div>#}
+{#                {% endfor %}#}
+{#              {% endif %}#}
+{#            {% endfor %}#}
+{#          </div>#}
+{#        </div>#}
+{#        {% endfor %}#}
+{#      </div>#}
+{#    </div>#}
 
     <div class="photo-E4h" id="306:22">
-      <div class="item--MU5" id="306:25">Фото сурет</div>
+      <div class="item--MU5" id="306:25">Жаңалықтар</div>
       <div class="auto-group-i1rc-MMb" id="MPMUZBP9LEkX91ELfmi1rC">
         <div class="photo-slide">
             {% for photo in latest_photos %}
@@ -125,8 +131,8 @@
               <div class="overlay">
                   <div onclick="openModal('{{ latest_videos.0.id }}', 'videoModal{{ latest_videos.0.id }}')" class="play-button">
                       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-                          <circle cx="50" cy="50" r="40" fill="#ff0000" />
-                          <polygon points="40,30 40,70 70,50" fill="#ffffff" />
+                          <circle cx="50" cy="50" r="40" fill="#000000" />
+                          <polygon points="40,30 40,70 70,50" fill="#E3941E" />
                       </svg>
                   </div>
               </div>
@@ -178,8 +184,8 @@
               <div class="overlay">
                 <div onclick="openModal('{{ latest_videos.1.id }}', 'videoModal{{ latest_videos.1.id }}')" class="play-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="40" fill="#ff0000" />
-                        <polygon points="40,30 40,70 70,50" fill="#ffffff" />
+                        <circle cx="50" cy="50" r="40" fill="#000000" />
+                        <polygon points="40,30 40,70 70,50" fill="#E3941E" />
                     </svg>
                 </div>
             </div>
@@ -190,8 +196,8 @@
               <div class="overlay">
                 <div onclick="openModal('{{ latest_videos.2.id }}', 'videoModal{{ latest_videos.2.id }}')" class="play-button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="40" fill="#ff0000" />
-                    <polygon points="40,30 40,70 70,50" fill="#ffffff" />
+                    <circle cx="50" cy="50" r="40" fill="#000000" />
+                    <polygon points="40,30 40,70 70,50" fill="#E3941E" /> 
                   </svg>
                 </div>
               </div>

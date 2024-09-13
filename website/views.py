@@ -39,7 +39,18 @@ def main(request):
         images = news_item.images.all()  # Получаем первые три изображения для каждой новости
         news_images[news_item.id] = images
     print("News images: ", news_images)
-    return render(request, 'main.html', {'latest_photos': latest_photos, 'latest_audios': latest_audios, 'latest_videos': latest_videos, 'latest_articles': latest_articles, 'latest_news': latest_news, 'news_images': news_images})
+    return render(
+        request,
+        'main.html',
+        {
+            'latest_photos': latest_photos,
+            'latest_audios': latest_audios,
+            'latest_videos': latest_videos,
+            'latest_articles': latest_articles,
+            'latest_news': latest_news,
+            'news_images': news_images
+        }
+    )
 
 
 def photo_view(request):
