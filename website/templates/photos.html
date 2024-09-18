@@ -23,14 +23,15 @@
 </head>
 <body>
     <nav>
+        <div class="img"></div>
         <div class="wrapper" id="wrapper">
           <div class="logo"><a href="main.html" title="Басты бет"></a></div>
           <input type="radio" name="slider" id="menu-btn">
           <input type="radio" name="slider" id="close-btn">
           <ul class="nav-links">
             <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-            <li><a id="main-page-nav" href="main.html" title="Басты бет">Басты бет</a></li>
-            <li><a href="photos.html" class="active-nav-links" title="Фото сурет">Фото сурет</a></li>
+              <li><a id="main-page-nav" href="main.html" title="Басты бет">Басты бет</a></li>
+              <li><a href="photos.html" class="active-nav-links" title="Фото сурет">Фото сурет</a></li>
             <li><a href="suhbat.html" title="Сұхбат">Сұхбат</a></li>
             <li><a href="article.html" title="Мақала">Мақала</a></li>
             <!--<li><a href="#">Сауалнама</a></li>-->
@@ -40,10 +41,15 @@
     </nav>
 
       <div class="photo-first-block">
-        <div class="photo-first-block-text">
-          <h1>ФОТО СУРЕТ</h1>
-        </div>
-        <div class="navigation-to-second-block">
+          <div class="first-block-text-with-image">
+              <div class="image-container">
+                <div class="image-people"></div>
+              </div>
+            <div class="photo-first-block-text">
+              <h1>ФОТО СУРЕТ</h1>
+            </div>
+          </div>
+         <div class="navigation-to-second-block">
           <span class="text-in-nav">келесі бөлімге өтіңіз</span>
           <a href="#photo-gallery" class="next-button scrollToElement" data-target=".photo-gallery"><span class="arrow">&#8595;</span></a>
         </div>

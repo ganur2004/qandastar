@@ -8,7 +8,7 @@ body {
     display: flex;
     height: 100vh;
     width: 100vw;
-    background-image: linear-gradient(rgba(21, 16, 16, 0.5), rgba(0, 0, 0, 0.5)), url('photos/main.jpg');
+    background: var(--color-background);
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -17,6 +17,7 @@ body {
     flex-direction: column;
   
     .suhbat-first-block-text {
+      flex: 2;
       position: relative;
   
       h1 {
@@ -545,4 +546,25 @@ cursor: pointer;
   background-color: rgba(0, 0, 0, 0.8);
   align-items: center;
   justify-content: center;
+}
+
+.first-block-text-with-image {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+
+.image-container {
+  flex: 1;
+
+}
+.image-people {
+  width: auto; /* Автоматическая ширина для сохранения пропорций */
+  height: 60vh; /* Высота изображения относительно высоты окна просмотра */
+  background-image: url('photos/people.png');
+  background-size: contain; /* Сохраняет пропорции изображения */
+  background-position: center; /* Центрирует изображение */
+  background-repeat: no-repeat; /* Не повторяет изображение */
+  margin: 10px; /* Отступы вокруг изображения */
 }

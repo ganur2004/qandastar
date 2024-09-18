@@ -8,16 +8,6 @@ body.modal-open {
   overflow: hidden;
 }
 
-.img {
-    background-image: url('photos/oui.png');
-    background-repeat: repeat-x;
-    background-size: 60px 30px;
-    height: 30px;
-    padding: 0;
-    margin: 15px;
-}
-
-
 .main-sector-7dn {
   background-color: var(--color-background);
   background-position: center;
@@ -28,23 +18,30 @@ body.modal-open {
   overflow: hidden;
   position: relative;
   width: 100%;
+  display: flex;
+  align-items: center;
 
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
-    height: 100%;
+    flex: 2;
 }
 
 .text-container {
-  flex: 1;
   padding-left: 20px;
-  text-align: left;
+}
+
+.first-block-text-with-image {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
 }
 
 .image-container {
-  flex-shrink: 0; /* Не сжимается */
+  flex: 1;
 
 }
 .image-people {
@@ -68,20 +65,17 @@ body.modal-open {
   }
 
   .item--MgY {
-    margin-left: 10%;
-    margin-right: 10%;
-    color: #1f1100;
-    font-family: Inter, 'Source Sans Pro';
+    color: var(--color-text);
+    font-family: Montserrat, serif;
     font-size: 2.8vw;
     font-weight: 700;
     height: fit-content;
     line-height: 1.2125;
     position: relative;
-    text-align: left;
     width: 80%;
     top: 30%; 
     margin-top: auto; margin-bottom: auto;
-    /*transform: translateY(-100%);*/
+    text-align: left !important;
   }
 
   @media screen and (max-width: 100px) and (min-width: 700px) {
