@@ -1,6 +1,20 @@
 /*footer style*/
+
+@font-face {
+    font-family: 'Montserrat-Light';
+    src: url('slick/fonts/Montserrat-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MontserratBold';
+    src: url('slick/fonts/MontserratBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 footer {
-    background: #0a0908;
+    background: var(--color-background);
     color: #f2f4f3;
     border-top: 2px solid white;
   }
@@ -15,13 +29,24 @@ footer {
     color: #FA944B;
     text-decoration: none;
   }
-  
+  h4.title{
+    font-family: "Bookman Old Style",sans-serif;
+  }
+  h4.title.name {
+    white-space: nowrap;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+}
+
   .copy {
     font-size: 12px;
     padding: 10px;
     border-top: 1px solid #FFFFFF;
   }
-  
+  .row{
+    justify-content: space-around;
+  }
   .footer-middle {
     padding-top: 2em;
     color: #f2f4f3;
@@ -38,13 +63,14 @@ footer {
     margin-left: 0 !important;
     padding: 0;
   }
-  
+
   ul.social-network li {
-    display: inline;
+    display: inline-flex;
+    align-items: center;
     margin: 0 5px;
   }
   
-  
+
   /* footer social icons */
   
   .social-network a.icoFacebook:hover {
@@ -81,10 +107,11 @@ footer {
   .socialHoverClass {
     color: #44BCDD;
   }
-  
+
   .social-circle li a {
-    display: inline-block;
-    position: relative;
+     display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto 0 auto;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -94,7 +121,12 @@ footer {
     height: 30px;
     font-size: 15px;
   }
-  
+.social-network li span {
+    font-size: 14px;
+    color: #f2f4f3;
+    margin: 10px;
+    font-family: "Montserrat-Light", sans-serif;
+}
   .social-circle li i {
     margin: 0;
     line-height: 30px;
@@ -126,4 +158,16 @@ footer {
   .social-network a {
     background-color: #F9F9F9;
   }
-  
+  .img {
+    background-image: url('photos/oui.png');
+    background-repeat: repeat-x;
+    background-size: 60px 30px;
+    height: 30px;
+    padding: 0;
+    margin: 15px;
+}
+
+  .lilist{
+    margin: 10px;
+    font-size: 14px;
+  }
