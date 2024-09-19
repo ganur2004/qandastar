@@ -1,0 +1,681 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QANDASTAR | Басты бет</title>
+    <link rel="stylesheet" href="{% static 'website/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'website/photos/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'website/main.css' %}">
+    <link rel="stylesheet" href="{% static 'website/menu.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'website/slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'website/slick/slick-theme.css' %}"/>
+    <link rel="stylesheet" href="{% static 'website/lightzoom_v1.1.0/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="img"></div>
+        <div class="wrapper" id="wrapper">
+          <div class="logo"><a href="main.html" title="Басты бет"></a></div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li><a id="main-page-nav" class="active-nav-links" href="main.html" title="Басты бет">Басты бет</a></li>
+            <li><a href="photos.html" title="Фото сурет">Фото сурет</a></li>
+            <li><a href="suhbat.html" title="Сұхбат">Сұхбат</a></li>
+            <li><a href="article.html" title="Мақала">Мақала</a></li>
+          </ul>
+          <!--<form action="{% url 'change_language' %}" method="GET">
+            <select id="languageSelect" name="language">
+                <option value="kz">Kazakh</option>
+                <option value="ru">Russian</option>
+            </select>
+          </form>-->
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+    </nav>
+      
+    
+    <div class="main-sector-7dn col-lg-12 col-md-12 col-sm-12" id="306:6">
+        <div class="first-block-text-with-image">
+          <div class="image-container">
+            <div class="image-people"></div>
+          </div>
+            <div class="container">
+            <div class="text-container">
+                <p class="item--MgY text-justify text-center col-lg-10 col-md-10 col-sm-10">
+                    Моңғолия мен Қытай этникалық қазақтарының Қазақстан Республикасына интеграциялану механизмі: әлеуметтік-мәдени және лингвистикалық-экологиялық мониторинг
+                </p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+   <div class="welcome-sector-s6c" id="306:14">
+        <div class="group-20-djz" id="336:2">
+{#            <div class="item--8Tn" id="306:15">Біздің әлеуметтік-мәдени интеграция әуесқойларының қауымдастығына қош келдіңіз. Алда сізді біздің ұйымның жұмыстары мен еңбектеріне саяхат күтіп тұр.</div>#}
+            <div class="auto-group-fgqu-Grp" id="VKbZwsdpxFRk3zLtjuFgQU">
+                <div class="auto-group-yw5w-Zb2" id="VKbaBha84RZ4YXG3zDyw5W">
+                    <img src="{% static 'website/photos/camera.png' %}" width="75px" height="75px" alt="Фото сурет" />
+                    <div class="item--5JU" id="news-section"><a href="#" class="scrollToElement" data-target=".news-section">Фото сурет</a></div>
+                </div>
+                <div class="auto-group-yw5w-Zb2" id="VKbaBha84RZ4YXG3zDyw5W">
+                    <img src="{% static 'website/photos/person.png' %}"  width="75px" height="75px" alt="Мақала" />
+                    <div class="item--5JU" id="photo-E4h"><a href="#" class="scrollToElement" data-target=".photo-E4h">Мақала</a></div>
+                </div>
+                <div class="auto-group-yw5w-Zb2" id="VKbaHhQ8VTrDGFKYTQCfnC">
+                    <img src="{% static 'website/photos/schedule.png' %}" width="75px" height="75px" alt="Сауылнама" />
+                    <div class="item--5JU" id="suhbat-Zvq"><a href="#" class="scrollToElement" data-target=".suhbat-Zvq">Сауылнама</a></div>
+                </div>
+                <div class="auto-group-yw5w-Zb2" id="VKbaNhFoWzmAs237r3ichS">
+                    <img src="{% static 'website/photos/statistic.png' %}" width="75px" height="75px" alt="Cтатистика" />
+                    <div class="item--5JU" id="maqala-nZq"><a href="#" class="scrollToElement" data-target=".maqala-nZq">Cтатистика</a></div>
+                </div>
+                <!--<div class="auto-group-nxmj-EW8" id="VKbaTmwfpzHp4ChXAEnxmJ">
+                    <div class="item--Aeg" id="306:20">Сауалнама</div>
+                </div>
+                <div class="item--ohe" id="306:21">Статистика</div>-->
+            </div>
+        </div>
+    </div>
+
+{#    <div class="news-section">#}
+{#      <div class="news-section-title">#}
+{#        <span id="news-section-title">Жаңалықтар</span>#}
+{#      </div>#}
+{#      <div class="news-section-content">#}
+{#      {% for  news in latest_news %}#}
+{#       <div class="news-section-content-second">#}
+{#          <div class="news-section-content-title">#}
+{#            <span id="content-title-name">{{ news.title }}</span><br>#}
+{#           <span id="content-title-description">{{ news.content }}</span>#}
+{#          </div>#}
+{#          <div class="news-section-content-image">#}
+{#            {% for key, news_photos in news_images.items %}#}
+{#              {% if  key == news.id %}#}
+{#                {% for news_photo in news_photos %}#}
+{#                  <div><a href="{{ news_photo.image.url }}" class="lightzoom"><img id="content-image" src="{{ news_photo.image.url }}"></a></div>#}
+{#                {% endfor %}#}
+{#              {% endif %}#}
+{#            {% endfor %}#}
+{#          </div>#}
+{#        </div>#}
+{#        {% endfor %}#}
+{#      </div>#}
+{#    </div>#}
+
+    <div class="photo-E4h" id="306:22">
+      <div class="item--MU5" id="306:25">Жаңалықтар</div>
+      <div class="auto-group-i1rc-MMb" id="MPMUZBP9LEkX91ELfmi1rC">
+        <div class="photo-slide">
+            {% for photo in latest_photos %}
+            <div><a href="{{ photo.image.url }}" class="lightzoom"><img alt="{{ photo.nameImage }}" src="{{ photo.image.url }}"></a></div>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="suhbat-Zvq col-lg-12 col-md-12 col-sm-12" id="306:70">
+      <p class="item--Vv9" id="311:2">Сұхбат</p>
+      <div class="auto-group-7tcc-nob" id="MPMQssLub3BGdhNHRJ7tCc">
+        <div class="auto-group-4sal-buT" id="MPMRDh7D8FbjqxLw8o4saL">
+          <!--#################Видеожазба-->
+          <p class="item--XHK" id="311:11">Видеожазба</p>
+          <!--###########old code-->
+          <div class="auto-group-knx6-Kys" id="MPMRPBqPUZjZV278NpkNX6">
+            <div class="group-3-Eb3" id="311:19">
+              <div class="overlay">
+                  <div onclick="openModal('{{ latest_videos.0.id }}', 'videoModal{{ latest_videos.0.id }}')" class="play-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                          <circle cx="50" cy="50" r="40" fill="#000000" />
+                          <polygon points="40,30 40,70 70,50" fill="#E3941E" />
+                      </svg>
+                  </div>
+              </div>
+          </div>
+          
+            <div class="group-6-C41" id="311:35">
+              <div class="rectangle-21-LR7" id="311:31"></div>
+              <div class="group-5-GZf" id="311:30">
+                <p class="item--mmK" id="311:28">
+                  <b>{{ latest_videos.0.nameVideo }}</b><br>
+                  {% if latest_videos.0.descriptionVideo != "" %}
+                    {{ latest_videos.0.descriptionVideo }}
+                  {% else %}
+                    Бұл біздің сайтымызға жүктелген соңғы видео. Көріп, тамашалаңыз!!!
+                  {% endif %}
+                  <br/>
+                  <br/>
+                  {% if latest_videos.0.dateOfVideo is not None %}
+                    {{ latest_videos.0.dateOfVideo | date:"d.m.Y" }}
+                  {% else %}
+                    {{ latest_videos.0.uploadDateVideo | date:"d.m.Y" }}
+                  {% endif %}
+                </p>
+              </div>  
+            </div>
+          </div>
+          <div class="auto-group-yfm6-pWd" id="MPMRYrDxPo6kJukyTwYfm6">
+            <div class="group-7-jdb" id="311:36">
+              <div class="rectangle-21-F69" id="311:37"></div>
+              <div class="group-5-NRf" id="311:38">
+                <p class="item--WGy" id="311:39">
+                  <b>{{ latest_videos.1.nameVideo }}</b><br>
+                  {% if latest_videos.1.descriptionVideo != "" %}
+                    {{ latest_videos.1.descriptionVideo }}
+                  {% else %}
+                    Бұл біздің сайтымызға жүктелген соңғы видео. Көріп, тамашалаңыз!!!
+                  {% endif %}
+                  <br/>
+                  <br/>
+                  {% if latest_videos.1.dateOfVideo is not None %}
+                    {{ latest_videos.1.dateOfVideo | date:"d.m.Y" }}
+                  {% else %}
+                    {{ latest_videos.1.uploadDateVideo | date:"d.m.Y" }}
+                  {% endif %}
+                </p>
+              </div>
+            </div>
+            <div class="group-4-2Y9" id="311:20">
+              <div class="overlay">
+                <div onclick="openModal('{{ latest_videos.1.id }}', 'videoModal{{ latest_videos.1.id }}')" class="play-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="#000000" />
+                        <polygon points="40,30 40,70 70,50" fill="#E3941E" />
+                    </svg>
+                </div>
+            </div>
+            </div>
+          </div>
+          <div class="auto-group-knx6-Kys" id="MPMRhqxy3MYUPVrDAhsmp8">
+            <div class="group-3-Eb3" id="311:24">
+              <div class="overlay">
+                <div onclick="openModal('{{ latest_videos.2.id }}', 'videoModal{{ latest_videos.2.id }}')" class="play-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" fill="#000000" />
+                    <polygon points="40,30 40,70 70,50" fill="#E3941E" /> 
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="group-6-C41" id="311:44">
+              <div class="group-5-GZf" id="311:46">
+                <p class="item--mmK" id="311:47">
+                  <b>{{ latest_videos.2.nameVideo }}</b><br>
+                  {% if latest_videos.2.descriptionVideo != "" %}
+                    {{ latest_videos.2.descriptionVideo }}
+                  {% else %}
+                    Бұл біздің сайтымызға жүктелген соңғы видео. Көріп, тамашалаңыз!!!
+                  {% endif %}
+                  <br/>
+                  <br/>
+                  {% if latest_videos.2.dateOfVideo is not None %}
+                    {{ latest_videos.2.dateOfVideo | date:"d.m.Y" }}
+                  {% else %}
+                    {{ latest_videos.2.uploadDateVideo | date:"d.m.Y" }}
+                  {% endif %}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="auto-group-w1ec-GPs" id="MPMSdKRsDxWjJYifr2W1Ec">
+          <div class="auto-group-8guj-oeh" id="MPMSBuzXfzsXLdQfH58GuJ">
+            <p class="item--Kd3" id="311:18">Аудиожазба</p>
+ 
+            {% for audio in latest_audios %}
+            <div class="group-10-h7o">
+                <div class="audio-design">
+                    <audio controls id="audio-style" class="plyr">
+                        <source src="{{ audio.audio_file.url }}" type="audio/mp3">
+                        <source src="{{ audio.audio_file.url }}" type="audio/aac">
+                        <source src="{{ audio.audio_file.url }}" type="audio/wav">
+                        <source src="{{ audio.audio_file.url }}" type="audio/flac">
+                        <source src="{{ audio.audio_file.url }}" type="audio/ogg">
+                        <source src="{{ audio.audio_file.url }}" type="audio/aiff">
+                        <source src="{{ audio.audio_file.url }}" type="audio/alac">
+                        <source src="{{ audio.audio_file.url }}" type="audio/wma">
+                        Ваш браузер не поддерживает аудио HTML5.
+                    </audio>
+                </div>
+                <p class="item-28082023-kbs">
+                  {% if audio.dateOfAudio is not None %}
+                    {{ audio.dateOfAudio | date:"d.m.Y" }}
+                  {% else %}
+                    {{ audio.uploadDateAudio | date:"d.m.Y" }}
+                  {% endif %}
+                </p>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+
+
+      {% for video in latest_videos %}
+      <div id="videoModal{{ video.id }}" class="modal videoModalStyle">
+        <span class="close" onclick="closeModal('player{{ video.id }}', 'videoModal{{ video.id }}')">&times;</span>
+        <div class="modal-content">
+          <video id="player{{ video.id }}" controls width="90%" height="90%">
+            <source src="{{ video.video_file.url }}" type="video/mp4">
+            <source src="{{ video.video_file.url }}" type="video/avi">
+            <source src="{{ video.video_file.url }}" type="video/mkv">
+            <source src="{{ video.video_file.url }}" type="video/mov">
+            <source src="{{ video.video_file.url }}" type="video/wmv">
+            <source src="{{ video.video_file.url }}" type="video/flv">
+            <source src="{{ video.video_file.url }}" type="video/webm">
+            <source src="{{ video.video_file.url }}" type="video/mpeg">
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!--
+
+      <div id="videoModal1" class="modal">
+        <span class="close" onclick="closeModal1()">&times;</span>
+        <div class="modal-content">
+          <video id="player1" controls width="90%" height="90%">
+            <source src="video/video1.mp4" type="video/mp4" >
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+      </div>
+      <div id="videoModal2" class="modal">
+        <span class="close" onclick="closeModal2()">&times;</span>
+        <div class="modal-content">
+          <video id="player2" controls style="max-width: 40vh;">
+            <source src="video/video2.mp4" type="video/mp4" >
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+      </div>
+      <div id="videoModal3" class="modal">
+        <span class="close" onclick="closeModal3()">&times;</span>
+        <div class="modal-content">
+          <video id="player3" controls style="max-width: 40vh">
+            <source src="video/video3.mp4" type="video/mp4" >
+            Ваш браузер не поддерживает видео.
+          </video>
+        </div>
+      </div>
+    -->
+    </div>
+  
+    <div class="maqala-nZq" id="312:100">
+        <div class="item--Dj1" id="313:101">Мақала</div>
+        <div class="auto-group-emw4-fb1" id="MPMN9StsrF2t8TSjYPemW4">
+          <div class="group-17-oSK" id="317:117">
+            <div class="auto-group-qxxa-UYT" id="MPMNrvhmAmQqc4CDHMqXXA">
+              <img class="icons8-64-1-xTd" src="{% static 'website/photos/icon_maqala.png' %}" id="316:104"/>
+              <div class="item--UB5" id="316:105">{{ latest_articles.0.nameArticle }}</div>
+            </div>
+            <div class="item--3tP" id="316:107">
+                <embed src='{{ latest_articles.0.article_file.url }}' type="application/pdf" width="100%" height="100%">
+            </div>
+            <div class="auto-group-b52t-pGB" id="MPMNxFtDL8nXaUh6NBb52t">
+              <div class="auto-group-lcyc-W91" id="MPMP3b4fVWADYuByT1LcYc"> 
+                <div class="item--oto" id="316:109">
+                  {% if latest_articles.0.nameAuthor == "" %}
+                    {% if latest_articles.0.dateOfArticle is None %}
+                      {{ latest_articles.0.uploadDateArticle | date:"d.m.Y" }}
+                    {% else %}
+                      {{ latest_articles.0.dateOfArticle | date:"d.m.Y" }}
+                    {% endif %}
+                  {% else %}
+                    {{ latest_articles.0.nameAuthor }} - 
+                    {% if latest_articles.0.dateOfArticle is None %}
+                      {{ latest_articles.0.uploadDateArticle | date:"d.m.Y" }}
+                    {% else %}
+                      {{ latest_articles.0.dateOfArticle | date:"d.m.Y" }}
+                    {% endif %}
+                  {% endif %}    
+                </div>
+              </div>
+              <div class="auto-group-py8g-nXm" id="MPMP7qSaxuY2oxQ7Xkpy8G">    
+                <img class="icons8-50-1-fbZ" onclick="openDocument('{{ latest_articles.0.article_file.url }}')" src="{% static 'website/photos/icon_strelka.png' %}" id="317:112"/>
+              </div>
+            </div>
+          </div>
+          <div class="auto-group-fvnx-jLX" id="MPMNDrwBtZe4aLYXUEFvNx">
+            <div class="group-18-SEw" id="318:122">
+              <div class="auto-group-kqvv-8dZ" id="MPMNMmsfrA5uwZM2AvKqVv">
+                <img class="icons8-64-2-4GK" src="{% static 'website/photos/icon_maqala.png' %}" id="317:115"/>
+                <div class="item--Bbq" id="317:118">{{ latest_articles.1.nameArticle }}</div>
+              </div>
+              <div class="item--zZH" id="317:119">
+                <embed src='{{ latest_articles.1.article_file.url }}' type="application/pdf" width="100%" height="100%">
+              </div>
+              <div class="line-8-kqH" id="317:120">
+                <img class="icons8-50-2-4qy" onclick="openDocument('{{ latest_articles.1.article_file.url }}')" src="{% static 'website/photos/icon_strelka.png' %}" id="318:121"/>
+              </div>
+            </div>
+            <div class="group-18-SEw" id="318:122">
+              <div class="auto-group-kqvv-8dZ" id="MPMNMmsfrA5uwZM2AvKqVv">
+                <img class="icons8-64-2-4GK" src="{% static 'website/photos/icon_maqala.png' %}" id="317:115"/>
+                <div class="item--Bbq" id="317:118">{{ latest_articles.2.nameArticle }}</div>
+              </div>
+              <div class="item--zZH" id="317:119">
+                <embed src='{{ latest_articles.2.article_file.url }}' type="application/pdf" width="100%" height="100%">
+              </div>
+              <div class="line-8-kqH" id="317:120">
+                <img class="icons8-50-2-4qy" onclick="openDocument('{{ latest_articles.2.article_file.url }}')" src="{% static 'website/photos/icon_strelka.png' %}" id="318:121"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% include 'footer.html' %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'website/slick/slick.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'website/lightzoom_v1.1.0/lightzoom.js' %}"></script>
+    <script type="text/javascript">jQuery('.lightzoom').lightzoom({speed: 400, viewTitle: true});</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let prevScrollPos = $(window).scrollTop();
+            const nav = $("nav");
+            const scrollThreshold = 100;
+            let isMenuVisible = true;
+          
+            $(window).scroll(function() {
+              let currentScrollPos = $(this).scrollTop();
+              let scrollDifference = Math.abs(currentScrollPos - prevScrollPos);
+          
+              if (scrollDifference >= scrollThreshold) {
+                if (currentScrollPos > prevScrollPos && isMenuVisible) {
+                  nav.animate({ top: `-${nav.outerHeight()}px` }, 300); // Скрыть меню за 300 миллисекунд
+                  isMenuVisible = false;
+                } else if (currentScrollPos < prevScrollPos && !isMenuVisible) {
+                  nav.animate({ top: "0" }, 300); // Показать меню за 300 миллисекунд
+                  isMenuVisible = true;
+                }
+                prevScrollPos = currentScrollPos;
+              }
+            });
+          });
+
+          $(function(){
+            function updateSlider() {
+                var isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
+                
+                slickOptions = {
+                    dots: true,
+                    infinite: true,
+                    speed: 500,
+                    fade: true,
+                    cssEase: 'linear',
+                    autoplay: !isMobile,
+                    autoplaySpeed: 3000,
+                    centerMode: true,
+                    mobileFirst: true,
+                    adaptiveHeight: isMobile, // Оставляем true, чтобы высота слайдера корректно адаптировалась
+                    arrows: !isMobile // Всегда показываем стрелки на десктопе
+                };
+            }
+      
+
+            $(window).on('load resize', function(){ // Используем событие 'load' и 'resize'
+              updateSlider();
+              $('.photo-slide').slick(slickOptions);
+            });
+          });
+
+          $('.news-section-content-image').slick({
+                    dots: false,
+                    infinite: true,
+                    speed: 500,
+                    fade: true,
+                    cssEase: 'ease',
+                    autoplay: true,
+                    autoplaySpeed: 500,
+                    centerMode: true,
+                    mobileFirst: true,
+                    adaptiveHeight: false, // Оставляем true, чтобы высота слайдера корректно адаптировалась
+                    arrows: false // Всегда показываем стрелки на десктопе
+          });
+
+          $('.news-section-content').slick({
+                    dots: false,
+                    infinite: true,
+                    speed: 500,
+                    autoplay: true,
+                    fade: true,
+                    cssEase: 'ease',
+                    autoplaySpeed: 5000,
+                    centerMode: true,
+                    mobileFirst: true,
+                    adaptiveHeight: false, // Оставляем true, чтобы высота слайдера корректно адаптировалась
+                    arrows: true // Всегда показываем стрелки на десктопе
+          });
+
+          $(function(){
+            $('.minimized').click(function(event) {
+              var i_path = $(this).attr('src');
+              $('body').append('<div id="overlay"></div><div id="magnify"><img src="'+i_path+'"><div id="close-popup"><i></i></div></div>');
+              $('#magnify').css({
+                top: 0,
+                left: 0,
+              
+               //left: ($(document).width() - $('#magnify').outerWidth())/2,
+               //top: ($(document).height() - $('#magnify').outerHeight())/2
+              //top: ($(window).height() - $('#magnify').outerHeight())/2
+             });
+              $('#overlay, #magnify').fadeIn('fast');
+            });
+            
+            $('body').on('click', '#close-popup, #overlay', function(event) {
+              event.preventDefault();
+          
+              $('#overlay, #magnify').fadeOut('fast', function() {
+                $('#close-popup, #magnify, #overlay').remove();
+              });
+            });
+          });
+          
+    </script>
+
+    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+    <!--new code-->
+    <script>
+      // Закрываем модальное окно при нажатии на клавишу "Esc"
+      let players = {}; // Объект для хранения всех Plyr плееров
+      var modalIdGlobal;
+      var videoIdGlobal;
+
+    
+      function openModal(videoId, modalId) {
+        modalIdGlobal = modalId;
+        videoIdGlobal = videoId;
+        playerId = "player" + videoId;
+        var modal = document.getElementById(modalId);
+        modal.style.display = "flex";
+        player = new Plyr('#' + playerId); // Инициализация Plyr плеера для конкретного видео
+        player.play();
+        player.airplay();
+        const nav = $("nav");
+        nav.animate({ top: `-${nav.outerHeight()}px` }, 300);
+        document.body.classList.add("modal-open");
+      }
+    
+      function closeModal(videoId, modalId) {
+        var modal = document.getElementById(modalId);
+        const nav = $("nav");
+        nav.animate({ top: "0" }, 300); // Показать меню за 300 миллисекунд
+        
+        if (player) {
+            player.pause();
+            player.destroy(); // Уничтожаем Plyr плеер, если он существует
+        }
+        
+        modal.style.display = "none";
+        document.body.classList.remove("modal-open");
+      }
+
+      // Закрываем модальное окно при нажатии на клавишу "Esc"
+      window.onkeydown = function(event) {
+          if (event.key === "Escape") {
+              closeModal(videoIdGlobal, modalIdGlobal);
+          }
+      }
+
+      // Закрываем модальное окно при клике за его пределами
+      window.onclick = function(event) {
+          if (event.target == modalIdGlobal) {
+            closeModal(videoIdGlobal, modalIdGlobal);
+          }
+      }
+    
+    </script>
+    
+
+    <!--<script>
+      let player;
+
+      function openModal1() {
+        var modal = document.getElementById('videoModal1');
+        modal.style.display = "flex";
+        player1 = new Plyr('#player1');
+        player1.play();
+      }
+      function closeModal1() {
+        var modal = document.getElementById('videoModal1');
+        player1.pause();
+        player1.destroy(); // Уничтожение Plyr
+        modal.style.display = "none";
+      }
+
+      function openModal2() {
+        var modal = document.getElementById('videoModal2');
+        modal.style.display = "flex";
+        player2 = new Plyr('#player2');
+        player2.play();
+        
+      }
+
+      function closeModal2() {
+        var modal = document.getElementById('videoModal2');
+        player2.pause();
+        player2.destroy(); // Уничтожение Plyr
+        modal.style.display = "none";
+      }
+      function openModal3() {
+        var modal = document.getElementById('videoModal3');
+        modal.style.display = "flex";
+        player3 = new Plyr('#player3');
+        player3.play();
+      }
+
+      function closeModal3() {
+        var modal = document.getElementById('videoModal3');
+        player3.pause();
+        player3.destroy(); // Уничтожение Plyr
+        modal.style.display = "none";
+      }
+    </script>-->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const players = Plyr.setup('.plyr');
+      });
+    </script>
+
+    <script>
+      function openDocument(documentPath) {
+        // Открытие документа в новой вкладке
+        window.open(documentPath, '_blank');
+      }
+      
+
+      //Скрыть текст в секторе welcome
+      // Получаем ссылку на элемент, который нужно скрыть
+      var myDiv = document.getElementById('306:15');
+      // Создаем медиа-запрос для мобильных экранов
+      var mobileMediaQuery = window.matchMedia("(max-width: 768px)");
+      // Функция для обработки изменений состояния медиа-запроса
+      function handleMobileScreenChange(mq) {
+          // Проверяем, соответствует ли текущий размер экрана медиа-запросу
+          if (mq.matches) {
+              // Если да, скрываем элемент
+              myDiv.style.display = "none";
+          } else {
+              // Если нет, отображаем элемент
+              myDiv.style.display = "block";
+          }
+      }
+      // Вызываем функцию для первоначальной настройки состояния элемента
+      handleMobileScreenChange(mobileMediaQuery);
+      // Добавляем слушатель события изменения состояния медиа-запроса
+      mobileMediaQuery.addListener(handleMobileScreenChange);
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        $(".scrollToElement").on('click', function(event) {
+          event.preventDefault();
+          
+          // Получаем целевой элемент, к которому нужно прокрутить страницу, из data-атрибута
+          var targetSelector = $(this).data('target');
+          var $target = $(targetSelector);
+      
+          // Плавно прокручиваем страницу к целевому элементу
+          if ($target.length) {
+            $('html, body').animate({
+              scrollTop: $target.offset().top
+            }, 800); // Время анимации в миллисекундах
+          }
+        });
+      });
+    </script>
+
+  <!--<script>
+  document.getElementById('languageSelect').addEventListener('change', function() {
+      this.form.submit();
+  });
+  </script>-->
+
+<script>
+  window.onload = function() {
+      var classDivHeight = document.querySelector('.group-17-oSK').offsetHeight;
+      var firstDivHeight = document.querySelector('.auto-group-qxxa-UYT').offsetHeight;
+      var secondDivHeight = document.querySelector('.auto-group-b52t-pGB').offsetHeight;
+      document.querySelector('.item--3tP').style.height = classDivHeight - (2 * (firstDivHeight + secondDivHeight)) + 'px';
+
+      var classDivHeightSecond = document.querySelector('.group-18-SEw').offsetHeight;
+      var firstDivHeightSecond = document.querySelector('.auto-group-kqvv-8dZ').offsetHeight;
+      var secondDivHeightSecond = document.querySelector('.line-8-kqH').offsetHeight;
+      document.querySelector('.item--zZH').style.height = classDivHeightSecond - (2 * (firstDivHeightSecond + secondDivHeightSecond)) + 'px';
+  };
+</script>
+
+
+
+    <!--<script>
+      // Инициализация Plyr для аудио
+      const playerAudio = new Plyr('audio');
+    
+      // Включить функционал Plyr
+      playerAudio.setup();
+    </script>-->
+    
+  
+</body>
+</html>

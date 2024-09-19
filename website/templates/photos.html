@@ -1,0 +1,188 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фото сурет</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'website/photos/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'website/photos.css' %}">
+    <link rel="stylesheet" href="{% static 'website/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'website/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'website/footer.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'website/slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'website/slick/slick-theme.css' %}"/>
+    <link rel="stylesheet" href="{% static 'website/lightzoom_v1.1.0/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="img"></div>
+        <div class="wrapper" id="wrapper">
+          <div class="logo"><a href="main.html" title="Басты бет"></a></div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+              <li><a id="main-page-nav" href="main.html" title="Басты бет">Басты бет</a></li>
+              <li><a href="photos.html" class="active-nav-links" title="Фото сурет">Фото сурет</a></li>
+            <li><a href="suhbat.html" title="Сұхбат">Сұхбат</a></li>
+            <li><a href="article.html" title="Мақала">Мақала</a></li>
+            <!--<li><a href="#">Сауалнама</a></li>-->
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+    </nav>
+
+      <div class="photo-first-block">
+          <div class="first-block-text-with-image">
+              <div class="image-container">
+                <div class="image-people"></div>
+              </div>
+            <div class="photo-first-block-text">
+              <h1>ФОТО СУРЕТ</h1>
+            </div>
+          </div>
+         <div class="navigation-to-second-block">
+          <span class="text-in-nav">келесі бөлімге өтіңіз</span>
+          <a href="#photo-gallery" class="next-button scrollToElement" data-target=".photo-gallery"><span class="arrow">&#8595;</span></a>
+        </div>
+      </div>
+
+      <div class="photo-gallery" id="photo-gallery">
+        <div class="photo-gallery-title">
+            <h1>ФОТО СУРЕТ</h1>
+        </div>
+        <div class="photo-gallery-items">
+            {% for photo in photos %}
+                <div class="photo-gallery-item-elements">
+                    <div class="photo-gallery-item" id="photo-gallery-item">
+                            <a href="{{ photo.image.url }}" class="lightzoom"><img src="{{ photo.image.url }}" alt="Name"></a>
+                    </div>
+                    <span class="photo-title">{{ photo.nameImage }}</span><br>
+                    <span class="photo-date">
+                      {% if photo.dateOfImage is not None %}
+                        {{ photo.dateOfImage | date:"d.m.Y" }}
+                      {% else %}
+                        {{ photo.uploadDateImage | date:"d.m.Y" }}
+                      {% endif %}
+                    </span>
+                </div> 
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'website/slick/slick.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'website/lightzoom_v1.1.0/lightzoom.js' %}"></script>
+    <script type="text/javascript">jQuery('.lightzoom').lightzoom({speed: 400, viewTitle: true});</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let prevScrollPos = $(window).scrollTop();
+            const nav = $("nav");
+            const scrollThreshold = 100;
+            let isMenuVisible = true;
+          
+            $(window).scroll(function() {
+              let currentScrollPos = $(this).scrollTop();
+              let scrollDifference = Math.abs(currentScrollPos - prevScrollPos);
+          
+              if (scrollDifference >= scrollThreshold) {
+                if (currentScrollPos > prevScrollPos && isMenuVisible) {
+                  nav.animate({ top: `-${nav.outerHeight()}px` }, 300); // Скрыть меню за 300 миллисекунд
+                  isMenuVisible = false;
+                } else if (currentScrollPos < prevScrollPos && !isMenuVisible) {
+                  nav.animate({ top: "0" }, 300); // Показать меню за 300 миллисекунд
+                  isMenuVisible = true;
+                }
+                prevScrollPos = currentScrollPos;
+              }
+            });
+          });
+
+          $(function(){
+            function updateSlider() {
+                var isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
+                
+                slickOptions = {
+                    dots: true,
+                    infinite: true,
+                    speed: 500,
+                    fade: true,
+                    cssEase: 'linear',
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    centerMode: true,
+                    mobileFirst: true,
+                    adaptiveHeight: isMobile, // Оставляем true, чтобы высота слайдера корректно адаптировалась
+                    arrows: !isMobile // Всегда показываем стрелки на десктопе
+                };
+            }
+      
+
+            $(window).on('load resize', function(){ // Используем событие 'load' и 'resize'
+              updateSlider();
+              $('.photo-slide').slick(slickOptions);
+            });
+           
+        });
+        
+        
+          $(function(){
+            $('.minimized').click(function(event) {
+              var i_path = $(this).attr('src');
+              $('body').append('<div id="overlay"></div><div id="magnify"><img src="'+i_path+'"><div id="close-popup"><i></i></div></div>');
+              $('#magnify').css({
+                top: 0,
+                left: 0,
+              
+               //left: ($(document).width() - $('#magnify').outerWidth())/2,
+               //top: ($(document).height() - $('#magnify').outerHeight())/2
+              //top: ($(window).height() - $('#magnify').outerHeight())/2
+             });
+              $('#overlay, #magnify').fadeIn('fast');
+            });
+            
+            $('body').on('click', '#close-popup, #overlay', function(event) {
+              event.preventDefault();
+          
+              $('#overlay, #magnify').fadeOut('fast', function() {
+                $('#close-popup, #magnify, #overlay').remove();
+              });
+            });
+          });   
+    </script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".scrollToElement").on('click', function(event) {
+        event.preventDefault();
+        
+        // Получаем целевой элемент, к которому нужно прокрутить страницу, из data-атрибута
+        var targetSelector = $(this).data('target');
+        var $target = $(targetSelector);
+    
+        // Плавно прокручиваем страницу к целевому элементу
+        if ($target.length) {
+          $('html, body').animate({
+            scrollTop: $target.offset().top
+          }, 800); // Время анимации в миллисекундах
+        }
+      });
+    });
+  </script>
+</body>
+</html>

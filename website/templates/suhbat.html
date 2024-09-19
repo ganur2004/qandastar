@@ -1,0 +1,345 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сұхбат</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'website/photos/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'website/suhbat.css' %}">
+    <link rel="stylesheet" href="{% static 'website/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'website/main.css' %}">
+    <link rel="stylesheet" href="{% static 'website/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'website/footer.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'website/slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'website/slick/slick-theme.css' %}"/>
+    <link rel="stylesheet" href="{% static 'website/lightzoom_v1.1.0/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="img"></div>
+        <div class="wrapper" id="wrapper">
+          <div class="logo"><a href="main.html" title="Басты бет"></a></div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li><a id="main-page-nav" href="main.html" title="Басты бет">Басты бет</a></li>
+            <li><a href="photos.html" title="Фото сурет">Фото сурет</a></li>
+            <li><a href="suhbat.html" class="active-nav-links" title="Сұхбат">Сұхбат</a></li>
+            <li><a href="article.html" title="Мақала">Мақала</a></li>
+            <!--<li><a href="#">Сауалнама</a></li>-->
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+    </nav>
+
+    <div class="suhbat-first-block">
+      <div class="first-block-text-with-image">
+           <div class="image-container">
+              <div class="image-people"></div>
+           </div>
+          <div class="suhbat-first-block-text">
+            <h1>СҰХБАТ</h1>
+          </div>
+      </div>
+      <div class="navigation-to-second-block">
+        <span class="text-in-nav">келесі бөлімге өтіңіз</span>
+        <a href="#suhbat-block" class="next-button scrollToElement" data-target=".suhbat-block"><span class="arrow">&#8595;</span></a>
+      </div>
+    </div>
+
+    <div class="suhbat-block" id="suhbat-block">
+        <div class="suhbat-block-title">
+            <div>
+                <ul class="nav-title" id="nav-title">
+                    <li id="video"><a href="#suhbat-block" style="color: #fa7617" id="video-title" onclick="toggleVisibility('video-items', 'audio-items', 'video-title', 'audio-title')">ВИДЕОЖАЗБА</a></li>
+                    <li id="audio"><a href="#suhbat-block" id="audio-title" onclick="toggleVisibility('audio-items', 'video-items', 'audio-title', 'video-title')">АУДИОЖАЗБА</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="video-items" id="video-items" style="display:flex;">
+          {% for video in videos %}
+            <div class="video-item-elements">
+            <div class="group-3-Eb3" id="311:19">
+                <div class="overlay">
+                    <div onclick="openModal('{{ video.id }}', 'videoModal{{ video.id }}')" class="play-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" fill="#ff0000" />
+                            <polygon points="40,30 40,70 70,50" fill="#ffffff" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="video-info">
+                  <span class="video-title">{{ video.nameVideo }}</span><br>
+                  <span class="video-date">
+                        {% if video.dateOfVideo is not None %}
+                          {{ video.dateOfVideo | date:"d.m.Y" }}
+                        {% else %}
+                          {{ video.uploadDateVideo | date:"d.m.Y" }}
+                        {% endif %}
+                  </span>
+                </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="audio-items" id="audio-items" style="display:none;">
+          {% for audio in audios %}
+          <div class="audio-item-elements">
+            <div class="group-10-h7o" id="312:57">
+              <div class="audio-design">
+                <audio controls id="audio-style" class="plyr">
+                  <source src="{{ audio.audio_file.url }}" type="audio/mp3">
+                        <source src="{{ audio.audio_file.url }}" type="audio/aac">
+                        <source src="{{ audio.audio_file.url }}" type="audio/wav">
+                        <source src="{{ audio.audio_file.url }}" type="audio/flac">
+                        <source src="{{ audio.audio_file.url }}" type="audio/ogg">
+                        <source src="{{ audio.audio_file.url }}" type="audio/aiff">
+                        <source src="{{ audio.audio_file.url }}" type="audio/alac">
+                        <source src="{{ audio.audio_file.url }}" type="audio/wma">
+                  Ваш браузер не поддерживает аудио HTML5.
+                </audio>
+              </div>
+              <div class="audio-info">
+                <span class="audio-title">{{ audio.nameAudio }}</span><br>
+                <span class="audio-date">
+                        {% if audio.dateOfAudio is not None %}
+                          {{ audio.dateOfAudio| date:"d.m.Y" }}
+                        {% else %}
+                          {{ audio.uploadDateAudio | date:"d.m.Y" }}
+                        {% endif %}
+                </span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        {% for video in videos %}
+            <div id="videoModal{{ video.id }}" class="modal videoModalStyle">
+                <span class="close" onclick="closeModal('player{{ video.id }}', 'videoModal{{ video.id }}')">&times;</span>
+                <div class="modal-content">
+                <video id="player{{ video.id }}" controls width="90%" height="90%">
+                  <source src="{{ video.video_file.url }}" type="video/mp4">
+                  <source src="{{ video.video_file.url }}" type="video/avi">
+                  <source src="{{ video.video_file.url }}" type="video/mkv">
+                  <source src="{{ video.video_file.url }}" type="video/mov">
+                  <source src="{{ video.video_file.url }}" type="video/wmv">
+                  <source src="{{ video.video_file.url }}" type="video/flv">
+                  <source src="{{ video.video_file.url }}" type="video/webm">
+                  <source src="{{ video.video_file.url }}" type="video/mpeg">
+                    Ваш браузер не поддерживает видео.
+                </video>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    
+    
+
+    {% include 'footer.html' %}
+
+    <!--<script src="main.js"></script>
+    <script src="js/common_scripts.js"></script>-->
+    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'website/slick/slick.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'website/lightzoom_v1.1.0/lightzoom.js' %}"></script>
+    <script type="text/javascript">jQuery('.lightzoom').lightzoom({speed: 400, viewTitle: true});</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let prevScrollPos = $(window).scrollTop();
+            const nav = $("nav");
+            const scrollThreshold = 100;
+            let isMenuVisible = true;
+          
+            $(window).scroll(function() {
+              let currentScrollPos = $(this).scrollTop();
+              let scrollDifference = Math.abs(currentScrollPos - prevScrollPos);
+          
+              if (scrollDifference >= scrollThreshold) {
+                if (currentScrollPos > prevScrollPos && isMenuVisible) {
+                  nav.animate({ top: `-${nav.outerHeight()}px` }, 300); // Скрыть меню за 300 миллисекунд
+                  isMenuVisible = false;
+                } else if (currentScrollPos < prevScrollPos && !isMenuVisible) {
+                  nav.animate({ top: "0" }, 300); // Показать меню за 300 миллисекунд
+                  isMenuVisible = true;
+                }
+                prevScrollPos = currentScrollPos;
+              }
+            });
+          });
+
+          $(function(){
+            function updateSlider() {
+                var isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
+
+                
+                slickOptions = {
+                    dots: true,
+                    infinite: true,
+                    speed: 500,
+                    fade: true,
+                    cssEase: 'linear',
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    centerMode: true,
+                    mobileFirst: true,
+                    adaptiveHeight: isMobile, // Оставляем true, чтобы высота слайдера корректно адаптировалась
+                    arrows: !isMobile // Всегда показываем стрелки на десктопе
+                };
+            }
+      
+
+            $(window).on('load resize', function(){ // Используем событие 'load' и 'resize'
+              updateSlider();
+              $('.photo-slide').slick(slickOptions);
+            });
+           
+        });
+        
+        
+          $(function(){
+            $('.minimized').click(function(event) {
+              var i_path = $(this).attr('src');
+              $('body').append('<div id="overlay"></div><div id="magnify"><img src="'+i_path+'"><div id="close-popup"><i></i></div></div>');
+              $('#magnify').css({
+                top: 0,
+                left: 0,
+              
+               //left: ($(document).width() - $('#magnify').outerWidth())/2,
+               //top: ($(document).height() - $('#magnify').outerHeight())/2
+              //top: ($(window).height() - $('#magnify').outerHeight())/2
+             });
+              $('#overlay, #magnify').fadeIn('fast');
+            });
+            
+            $('body').on('click', '#close-popup, #overlay', function(event) {
+              event.preventDefault();
+          
+              $('#overlay, #magnify').fadeOut('fast', function() {
+                $('#close-popup, #magnify, #overlay').remove();
+              });
+            });
+          });   
+
+          function toggleVisibility(showId, hideId, activeLinkId, inactiveLinkId) {
+            var showDiv = document.getElementById(showId);
+            var hideDiv = document.getElementById(hideId);
+            var activeLink = document.getElementById(activeLinkId);
+            var inactiveLink = document.getElementById(inactiveLinkId);
+            
+            if (showDiv.style.display === 'none') {
+              showDiv.style.display = 'flex';
+              showDiv.classList.add('animated', 'fadeIn');
+              
+              hideDiv.classList.remove('fadeIn');
+              hideDiv.classList.add('animated', 'fadeOut');
+
+              activeLink.style.color = '#fa7617'; // Цвет ссылки для активного дива
+              inactiveLink.style.color = '#0a0908'; // Возвращаем стандартный цвет ссылки
+              
+              setTimeout(function() {
+                hideDiv.style.display = 'none';
+                hideDiv.classList.remove('animated', 'fadeOut');
+              }, 500); // Duration of animation
+            }
+          }
+
+          document.addEventListener('DOMContentLoaded', () => {
+            const players = Plyr.setup('.plyr');
+          });
+    </script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".scrollToElement").on('click', function(event) {
+        event.preventDefault();
+        
+        // Получаем целевой элемент, к которому нужно прокрутить страницу, из data-атрибута
+        var targetSelector = $(this).data('target');
+        var $target = $(targetSelector);
+    
+        // Плавно прокручиваем страницу к целевому элементу
+        if ($target.length) {
+          $('html, body').animate({
+            scrollTop: $target.offset().top
+          }, 800); // Время анимации в миллисекундах
+        }
+      });
+    });
+  </script>
+
+<script>
+    let players = {}; // Объект для хранения всех Plyr плееров
+
+  
+    function openModal(videoId, modalId) {
+        modalIdGlobal = modalId;
+        videoIdGlobal = videoId;
+        playerId = "player" + videoId;
+        var modal = document.getElementById(modalId);
+        modal.style.display = "flex";
+        player = new Plyr('#' + playerId); // Инициализация Plyr плеера для конкретного видео
+        player.play();
+        player.airplay();
+        const nav = $("nav");
+        nav.animate({ top: `-${nav.outerHeight()}px` }, 300);
+        document.body.classList.add("modal-open");
+      
+    }
+  
+    function closeModal(videoId, modalId) {
+      var modal = document.getElementById(modalId);
+        const nav = $("nav");
+        nav.animate({ top: "0" }, 300); // Показать меню за 300 миллисекунд
+        
+        if (player) {
+            player.pause();
+            player.destroy(); // Уничтожаем Plyr плеер, если он существует
+        }
+        
+        modal.style.display = "none";
+        document.body.classList.remove("modal-open");
+    }
+
+    // Закрываем модальное окно при нажатии на клавишу "Esc"
+    window.onkeydown = function(event) {
+          if (event.key === "Escape") {
+              closeModal(videoIdGlobal, modalIdGlobal);
+          }
+      }
+
+      // Закрываем модальное окно при клике за его пределами
+      window.onclick = function(event) {
+          if (event.target == modalIdGlobal) {
+            closeModal(videoIdGlobal, modalIdGlobal);
+          }
+      }
+  
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const players = Plyr.setup('.plyr');
+  });
+</script>
+</body>
+</html>
