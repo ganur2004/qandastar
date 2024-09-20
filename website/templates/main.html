@@ -110,19 +110,21 @@
 {#    </div>#}
 
     <div class="photo-E4h" id="306:22">
-      <div class="item--MU5" id="306:25">Жаңалықтар</div>
-      <div class="auto-group-i1rc-MMb" id="MPMUZBP9LEkX91ELfmi1rC">
-        <div class="photo-slide">
-            {% for photo in latest_photos %}
-            <div><a href="{{ photo.image.url }}" class="lightzoom"><img alt="{{ photo.nameImage }}" src="{{ photo.image.url }}"></a></div>
-            {% endfor %}
+        <div class="photo-fon">
+{#          <div class="item--MU5" id="306:25">Фото сурет</div>#}
+          <div class="auto-group-i1rc-MMb" id="MPMUZBP9LEkX91ELfmi1rC">
+            <div class="photo-slide">
+                {% for photo in latest_photos %}
+                <div><a href="{{ photo.image.url }}" class="lightzoom"><img alt="{{ photo.nameImage }}" src="{{ photo.image.url }}"></a></div>
+                {% endfor %}
+            </div>
+          </div>
         </div>
-      </div>
     </div>
 
 
     <div class="suhbat-Zvq col-lg-12 col-md-12 col-sm-12" id="306:70">
-      <p class="item--Vv9" id="311:2">Сұхбат</p>
+{#      <p class="item--Vv9" id="311:2">Сұхбат</p>#}
       <div class="auto-group-7tcc-nob" id="MPMQssLub3BGdhNHRJ7tCc">
         <div class="auto-group-4sal-buT" id="MPMRDh7D8FbjqxLw8o4saL">
           <!--#################Видеожазба-->

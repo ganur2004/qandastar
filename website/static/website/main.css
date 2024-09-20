@@ -438,9 +438,8 @@ body.modal-open {
   
   /*Photo-suret style*/
 .photo-E4h {
-  background-image: url("photos/round.png");
+  background: var(--color-background);
   align-items: center;
-  background-color: #0a0908;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -450,6 +449,13 @@ body.modal-open {
   position: relative;
   width: 100%;
   height: 100vh;
+
+  .photo-fon {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 200px;
+    background: var(--color-play);
+  }
 
   .rectangle-18-BPF {
     background-color: #f2f4f3;
@@ -461,16 +467,15 @@ body.modal-open {
   }
   .item--MU5 {
     color: black;
-    flex-shrink: 0;
-    font-family: Inter, 'Source Sans Pro';
+    font-family: var(--font-family);
     font-size: 3vw;
     display: flex;
     font-weight: 900;
     line-height: 1.2125;
     margin-right: 2.5vw;
-    text-align: right;
     white-space: nowrap;
     text-decoration: none;
+    justify-content: center;
   }
   .auto-group-i1rc-MMb {
     align-items: center;
@@ -481,12 +486,16 @@ body.modal-open {
     width: 100%;
   }
   .photo-slide {
-    width: 90%; /* Желаемая ширина контейнера изображений */
-    height: 75vh;
+    width: 70%; /* Желаемая ширина контейнера изображений */
+    height: 80vh;
     display: flex;
     justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .photo-slide div {
+    border-radius: 10px;
   }
   
   .photo-slide img {
@@ -494,6 +503,7 @@ body.modal-open {
     height: auto; /* Высота автоматически подстраивается для соответствия */
     object-fit: cover; /* Изображение будет заполнено внутри своего контейнера */
     object-position: 50% 50%;
+    border-radius: 10px;
   }
 
   /* Переопределение цвета точек Slick Slider на белый */
@@ -569,7 +579,7 @@ body.modal-open {
 /*Suhbat style*/
 .suhbat-Zvq {
   background-color: #f2f4f3;
-  height: 100vh;
+  height: fit-content;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -1435,7 +1445,7 @@ body.modal-open {
   
   
 .maqala-nZq {
-  background-color: #f2f4f3;
+  background: var(--color-background-wh);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
