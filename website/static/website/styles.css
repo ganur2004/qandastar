@@ -1,8 +1,11 @@
 :root {
     --color-background: #E3941E; /* Цвет фона */
-    --color-background-wh: #FAE6F5; /* Цвет фона */
+    --color-background-wh: #FAFAFA; /* Цвет фона */
     --color-text: #FFFFFF; /* Цвет текста */
     --color-play:#FFC464;
-    --color-share:black;
+    --color-share: black;
     --color-sm:#f2f4f3;
+    --font-family: Inter, 'Source Sans Pro';
+    --color-plyr: red;
+    --color-white-shadow: #c8c8c8
 }

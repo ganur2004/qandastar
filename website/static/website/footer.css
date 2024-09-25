@@ -15,22 +15,21 @@
 
 footer {
     background: var(--color-background);
-    color: #f2f4f3;
-    border-top: 2px solid white;
+    color: var(--color-text);
   }
   
   footer a {
-    color: #f2f4f3;
+    color: var(--color-text);
     font-size: 14px;
     transition-duration: 0.2s;
   }
   
   footer a:hover {
-    color: #FA944B;
+    color: var(--color-white-shadow);
     text-decoration: none;
   }
   h4.title{
-    font-family: "Bookman Old Style",sans-serif;
+    font-family: var(--font-family);
   }
   h4.title.name {
     white-space: nowrap;
@@ -42,21 +41,16 @@ footer {
   .copy {
     font-size: 12px;
     padding: 10px;
-    border-top: 1px solid #FFFFFF;
+    border-top: 1px solid var(--color-text);
   }
   .row{
     justify-content: space-around;
   }
   .footer-middle {
     padding-top: 2em;
-    color: #f2f4f3;
+    color: var(--color-text);
   }
-  
-  
-  /*SOCİAL İCONS*/
-  
-  /* footer social icons */
-  
+
   ul.social-network {
     list-style: none;
     display: inline;
@@ -69,9 +63,6 @@ footer {
     align-items: center;
     margin: 0 5px;
   }
-  
-
-  /* footer social icons */
   
   .social-network a.icoFacebook:hover {
     background: #00c6ff;
@@ -125,7 +116,7 @@ footer {
     font-size: 14px;
     color: #f2f4f3;
     margin: 10px;
-    font-family: "Montserrat-Light", sans-serif;
+    font-family: var(--font-family);
 }
   .social-circle li i {
     margin: 0;
@@ -158,6 +149,7 @@ footer {
   .social-network a {
     background-color: #F9F9F9;
   }
+
   .img {
     background-image: url('photos/oui.png');
     background-repeat: repeat-x;

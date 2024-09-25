@@ -201,7 +201,8 @@ nav .wrapper{
     background: #3A3B3C;
   }
   #menu-btn:checked ~ .nav-links{
-    left: 0%;
+    left: 0;
+    background-color: var(--color-background);
   }
   #menu-btn:checked ~ .btn.menu-btn{
     display: none;

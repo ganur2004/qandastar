@@ -62,60 +62,74 @@
 
     <div class="welcome-sector-s6c" id="306:14">
         <div class="group-20-djz" id="336:2">
-{#            <div class="item--8Tn" id="306:15">Біздің әлеуметтік-мәдени интеграция әуесқойларының қауымдастығына қош келдіңіз. Алда сізді біздің ұйымның жұмыстары мен еңбектеріне саяхат күтіп тұр.</div>#}
             <div class="auto-group-fgqu-Grp" id="VKbZwsdpxFRk3zLtjuFgQU">
                 <div class="auto-group-yw5w-Zb2" id="VKbaBha84RZ4YXG3zDyw5W">
-                    <div class="item--5JU" id="news-section"><a href="#" class="scrollToElement" data-target=".news-section">Жаңалықтар</a></div>
+                    <div class="item--5JU" id="news-section"><a href="#" class="scrollToElement" data-target=".news-section">
+                        <img src="{% static 'website/photos/magazine.png' %}" alt="Жаңалықтар" />
+                        <div>Жаңалықтар</div>
+                    </a></div>
                 </div>
                 <div class="auto-group-yw5w-Zb2" id="VKbaBha84RZ4YXG3zDyw5W">
-                    <div class="item--5JU" id="photo-E4h"><a href="#" class="scrollToElement" data-target=".photo-E4h">Фото сурет</a></div>
+                    <div class="item--5JU" id="photo-E4h"><a href="#" class="scrollToElement" data-target=".photo-E4h">
+                        <img src="{% static 'website/photos/camera.png' %}"  alt="Фото сурет" />
+                        <div>Фото сурет</div>
+                    </a></div>
+                </div>
+                <div class="auto-group-yw5w-Zb2" id="VKbaBha84RZ4YXG3zDyw5W">
+                    <div class="item--5JU" id="suhbat-Zvq"><a href="#" class="scrollToElement" data-target=".suhbat-Zvq">
+                        <img src="{% static 'website/photos/person.png' %}"  alt="Сұхбат" />
+                        <div>Сұхбат</div>
+                    </a></div>
                 </div>
                 <div class="auto-group-yw5w-Zb2" id="VKbaHhQ8VTrDGFKYTQCfnC">
-                    <div class="item--5JU" id="suhbat-Zvq"><a href="#" class="scrollToElement" data-target=".suhbat-Zvq">Сұхбат</a></div>
+                    <div class="item--5JU" id="maqala-nZq"><a href="#" class="scrollToElement" data-target=".maqala-nZq">
+                        <img src="{% static 'website/photos/write.png' %}"  alt="Мақала" />
+                        <div>Мақала</div>
+                    </a></div>
                 </div>
-                <div class="auto-group-yw5w-Zb2" id="VKbaNhFoWzmAs237r3ichS">
-                    <div class="item--5JU" id="maqala-nZq"><a href="#" class="scrollToElement" data-target=".maqala-nZq">Мақала</a></div>
-                </div>
-                <!--<div class="auto-group-nxmj-EW8" id="VKbaTmwfpzHp4ChXAEnxmJ">
-                    <div class="item--Aeg" id="306:20">Сауалнама</div>
-                </div>
-                <div class="item--ohe" id="306:21">Статистика</div>-->
+{#                <div class="auto-group-yw5w-Zb2" id="VKbaNhFoWzmAs237r3ichS">#}
+{#                    <img src="{% static 'website/photos/statistic.png' %}"  alt="Cтатистика" />#}
+{#                    <div class="item--5JU" id="maqala-nZq"><a href="#" class="scrollToElement" data-target=".maqala-nZq">Cтатистика</a></div>#}
+{#                </div>#}
             </div>
         </div>
     </div>
 
-{#    <div class="news-section">#}
-{#      <div class="news-section-title">#}
-{#        <span id="news-section-title">Жаңалықтар</span>#}
-{#      </div>#}
-{#      <div class="news-section-content">#}
-{#      {% for  news in latest_news %}#}
-{#       <div class="news-section-content-second">#}
-{#          <div class="news-section-content-title">#}
-{#            <span id="content-title-name">{{ news.title }}</span><br>#}
-{#           <span id="content-title-description">{{ news.content }}</span>#}
-{#          </div>#}
-{#          <div class="news-section-content-image">#}
-{#            {% for key, news_photos in news_images.items %}#}
-{#              {% if  key == news.id %}#}
-{#                {% for news_photo in news_photos %}#}
-{#                  <div><a href="{{ news_photo.image.url }}" class="lightzoom"><img id="content-image" src="{{ news_photo.image.url }}"></a></div>#}
-{#                {% endfor %}#}
-{#              {% endif %}#}
-{#            {% endfor %}#}
-{#          </div>#}
-{#        </div>#}
-{#        {% endfor %}#}
-{#      </div>#}
-{#    </div>#}
+    <div class="news-section">
+      <div class="news-section-title">
+        <span id="news-section-title">Жаңалықтар</span>
+      </div>
+      <div class="news-section-content">
+      {% for  news in latest_news %}
+       <div class="news-section-content-second">
+          <div class="news-section-content-title">
+            <span id="content-title-name">{{ news.title }}</span><br>
+           <span id="content-title-description">{{ news.content }}</span>
+          </div>
+          <div class="news-section-content-image">
+            {% for key, news_photos in news_images.items %}
+              {% if  key == news.id %}
+                {% for news_photo in news_photos %}
+                  <div class="news-image-parent-div"><a href="{{ news_photo.image.url }}" class="lightzoom"><img id="content-image" src="{{ news_photo.image.url }}"></a></div>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <div class="intermediate-div">
+        <div class="img"></div>
+    </div>
 
     <div class="photo-E4h" id="306:22">
         <div class="photo-fon">
-{#          <div class="item--MU5" id="306:25">Фото сурет</div>#}
           <div class="auto-group-i1rc-MMb" id="MPMUZBP9LEkX91ELfmi1rC">
             <div class="photo-slide">
                 {% for photo in latest_photos %}
-                <div><a href="{{ photo.image.url }}" class="lightzoom"><img alt="{{ photo.nameImage }}" src="{{ photo.image.url }}"></a></div>
+                    <div><a href="{{ photo.image.url }}" class="lightzoom"><img alt="{{ photo.nameImage }}" src="{{ photo.image.url }}"></a></div>
                 {% endfor %}
             </div>
           </div>
@@ -135,8 +149,8 @@
               <div class="overlay">
                   <div onclick="openModal('{{ latest_videos.0.id }}', 'videoModal{{ latest_videos.0.id }}')" class="play-button">
                       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-                          <circle cx="50" cy="50" r="40" fill="#000000" />
-                          <polygon points="40,30 40,70 70,50" fill="#E3941E" />
+                          <circle cx="50" cy="50" r="40" fill="white" />
+                          <polygon points="40,30 40,70 70,50" fill="red" />
                       </svg>
                   </div>
               </div>
@@ -188,8 +202,8 @@
               <div class="overlay">
                 <div onclick="openModal('{{ latest_videos.1.id }}', 'videoModal{{ latest_videos.1.id }}')" class="play-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="40" fill="#000000" />
-                        <polygon points="40,30 40,70 70,50" fill="#E3941E" />
+                        <circle cx="50" cy="50" r="40" fill="white" />
+                        <polygon points="40,30 40,70 70,50" fill="red" />
                     </svg>
                 </div>
             </div>
@@ -200,8 +214,8 @@
               <div class="overlay">
                 <div onclick="openModal('{{ latest_videos.2.id }}', 'videoModal{{ latest_videos.2.id }}')" class="play-button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="40" fill="#000000" />
-                    <polygon points="40,30 40,70 70,50" fill="#E3941E" /> 
+                    <circle cx="50" cy="50" r="40" fill="white" />
+                    <polygon points="40,30 40,70 70,50" fill="red" /> 
                   </svg>
                 </div>
               </div>
@@ -280,97 +294,84 @@
         </div>
       </div>
       {% endfor %}
-
-      <!--
-
-      <div id="videoModal1" class="modal">
-        <span class="close" onclick="closeModal1()">&times;</span>
-        <div class="modal-content">
-          <video id="player1" controls width="90%" height="90%">
-            <source src="video/video1.mp4" type="video/mp4" >
-            Ваш браузер не поддерживает видео.
-          </video>
-        </div>
-      </div>
-      <div id="videoModal2" class="modal">
-        <span class="close" onclick="closeModal2()">&times;</span>
-        <div class="modal-content">
-          <video id="player2" controls style="max-width: 40vh;">
-            <source src="video/video2.mp4" type="video/mp4" >
-            Ваш браузер не поддерживает видео.
-          </video>
-        </div>
-      </div>
-      <div id="videoModal3" class="modal">
-        <span class="close" onclick="closeModal3()">&times;</span>
-        <div class="modal-content">
-          <video id="player3" controls style="max-width: 40vh">
-            <source src="video/video3.mp4" type="video/mp4" >
-            Ваш браузер не поддерживает видео.
-          </video>
-        </div>
-      </div>
-    -->
     </div>
   
     <div class="maqala-nZq" id="312:100">
-        <div class="item--Dj1" id="313:101">Мақала</div>
+{#        <div class="item--Dj1" id="313:101">Мақала</div>#}
         <div class="auto-group-emw4-fb1" id="MPMN9StsrF2t8TSjYPemW4">
           <div class="group-17-oSK" id="317:117">
-            <div class="auto-group-qxxa-UYT" id="MPMNrvhmAmQqc4CDHMqXXA">
-              <img class="icons8-64-1-xTd" src="{% static 'website/photos/icon_maqala.png' %}" id="316:104"/>
-              <div class="item--UB5" id="316:105">{{ latest_articles.0.nameArticle }}</div>
-            </div>
-            <div class="item--3tP" id="316:107">
-                <embed src='{{ latest_articles.0.article_file.url }}' type="application/pdf" width="100%" height="100%">
-            </div>
-            <div class="auto-group-b52t-pGB" id="MPMNxFtDL8nXaUh6NBb52t">
-              <div class="auto-group-lcyc-W91" id="MPMP3b4fVWADYuByT1LcYc"> 
-                <div class="item--oto" id="316:109">
-                  {% if latest_articles.0.nameAuthor == "" %}
-                    {% if latest_articles.0.dateOfArticle is None %}
-                      {{ latest_articles.0.uploadDateArticle | date:"d.m.Y" }}
-                    {% else %}
-                      {{ latest_articles.0.dateOfArticle | date:"d.m.Y" }}
-                    {% endif %}
-                  {% else %}
-                    {{ latest_articles.0.nameAuthor }} - 
-                    {% if latest_articles.0.dateOfArticle is None %}
-                      {{ latest_articles.0.uploadDateArticle | date:"d.m.Y" }}
-                    {% else %}
-                      {{ latest_articles.0.dateOfArticle | date:"d.m.Y" }}
-                    {% endif %}
-                  {% endif %}    
+             <svg class="articles-svg" id="responsiveSvg" width="200" height="200" xmlns="http://www.w3.org/2000/svg" transform="rotate(90, 0, 0)" style="border-radius: 0 2.5vw">
+                  <rect id="rectElement" width="200" height="200" fill="none" />
+                  <path id="pathElement" d="M 0 0 L 0 200 L 200 200 A 200 200 0 0 0 0 0" fill="#FFC464"/>
+            </svg>
+            <div class="articles-content">
+                <div class="auto-group-qxxa-UYT" id="MPMNrvhmAmQqc4CDHMqXXA">
+                  <img class="icons8-64-1-xTd" src="{% static 'website/photos/icon_maqala.png' %}" id="316:104"/>
+                  <div class="item--UB5" id="316:105">{{ latest_articles.0.nameArticle }}</div>
                 </div>
-              </div>
-              <div class="auto-group-py8g-nXm" id="MPMP7qSaxuY2oxQ7Xkpy8G">    
-                <img class="icons8-50-1-fbZ" onclick="openDocument('{{ latest_articles.0.article_file.url }}')" src="{% static 'website/photos/icon_strelka.png' %}" id="317:112"/>
-              </div>
+                <div class="item--3tP" id="316:107">
+                    {{ latest_articles.0.partArticle }}
+                </div>
+                <div class="auto-group-b52t-pGB" id="MPMNxFtDL8nXaUh6NBb52t">
+                  <div class="auto-group-lcyc-W91" id="MPMP3b4fVWADYuByT1LcYc"> 
+                    <div class="item--oto" id="316:109">
+                      {% if latest_articles.0.nameAuthor == "" %}
+                        {% if latest_articles.0.dateOfArticle is None %}
+                          {{ latest_articles.0.uploadDateArticle | date:"d.m.Y" }}
+                        {% else %}
+                          {{ latest_articles.0.dateOfArticle | date:"d.m.Y" }}
+                        {% endif %}
+                      {% else %}
+                        {{ latest_articles.0.nameAuthor }} - 
+                        {% if latest_articles.0.dateOfArticle is None %}
+                          {{ latest_articles.0.uploadDateArticle | date:"d.m.Y" }}
+                        {% else %}
+                          {{ latest_articles.0.dateOfArticle | date:"d.m.Y" }}
+                        {% endif %}
+                      {% endif %}    
+                    </div>
+                  </div>
+                  <div class="auto-group-py8g-nXm" id="MPMP7qSaxuY2oxQ7Xkpy8G">    
+                    <img class="icons8-50-1-fbZ" onclick="openDocument('{{ latest_articles.0.article_file.url }}')" src="{% static 'website/photos/icon_strelka.png' %}" id="317:112"/>
+                  </div>
+                </div>
             </div>
           </div>
           <div class="auto-group-fvnx-jLX" id="MPMNDrwBtZe4aLYXUEFvNx">
             <div class="group-18-SEw" id="318:122">
-              <div class="auto-group-kqvv-8dZ" id="MPMNMmsfrA5uwZM2AvKqVv">
-                <img class="icons8-64-2-4GK" src="{% static 'website/photos/icon_maqala.png' %}" id="317:115"/>
-                <div class="item--Bbq" id="317:118">{{ latest_articles.1.nameArticle }}</div>
-              </div>
-              <div class="item--zZH" id="317:119">
-                <embed src='{{ latest_articles.1.article_file.url }}' type="application/pdf" width="100%" height="100%">
-              </div>
-              <div class="line-8-kqH" id="317:120">
-                <img class="icons8-50-2-4qy" onclick="openDocument('{{ latest_articles.1.article_file.url }}')" src="{% static 'website/photos/icon_strelka.png' %}" id="318:121"/>
+              <svg class="articles-svg" id="responsiveSvg" width="100" height="100" xmlns="http://www.w3.org/2000/svg" transform="rotate(90, 0, 0)" style="border-radius: 0 1.5rem">
+                  <rect id="rectElement" width="200" height="200" fill="none" />
+                  <path id="pathElement" d="M 0 0 L 0 100 L 100 100 A 100 100 0 0 0 0 0" fill="#FFC464"/>
+              </svg>
+              <div class="articles-content">
+                  <div class="auto-group-kqvv-8dZ" id="MPMNMmsfrA5uwZM2AvKqVv">
+                    <img class="icons8-64-2-4GK" src="{% static 'website/photos/icon_maqala.png' %}" id="317:115"/>
+                    <div class="item--Bbq" id="317:118">{{ latest_articles.1.nameArticle }}</div>
+                  </div>
+                  <div class="item--zZH" id="317:119">
+                      {{ latest_articles.1.partArticle }}
+                  </div>
+                  <div class="line-8-kqH" id="317:120">
+                    <img class="icons8-50-2-4qy" onclick="openDocument('{{ latest_articles.1.article_file.url }}')" src="{% static 'website/photos/icon_strelka.png' %}" id="318:121"/>
+                  </div>
               </div>
             </div>
-            <div class="group-18-SEw" id="318:122">
-              <div class="auto-group-kqvv-8dZ" id="MPMNMmsfrA5uwZM2AvKqVv">
-                <img class="icons8-64-2-4GK" src="{% static 'website/photos/icon_maqala.png' %}" id="317:115"/>
-                <div class="item--Bbq" id="317:118">{{ latest_articles.2.nameArticle }}</div>
-              </div>
-              <div class="item--zZH" id="317:119">
-                <embed src='{{ latest_articles.2.article_file.url }}' type="application/pdf" width="100%" height="100%">
-              </div>
-              <div class="line-8-kqH" id="317:120">
-                <img class="icons8-50-2-4qy" onclick="openDocument('{{ latest_articles.2.article_file.url }}')" src="{% static 'website/photos/icon_strelka.png' %}" id="318:121"/>
+              <div class="group-18-SEw" id="318:122">
+              <svg class="articles-svg" id="responsiveSvg" width="100" height="100" xmlns="http://www.w3.org/2000/svg" transform="rotate(90, 0, 0)" style="border-radius: 0 1.5rem">
+                  <rect id="rectElement" width="200" height="200" fill="none" />
+                  <path id="pathElement" d="M 0 0 L 0 100 L 100 100 A 100 100 0 0 0 0 0" fill="#FFC464"/>
+              </svg>
+              <div class="articles-content">
+                  <div class="auto-group-kqvv-8dZ" id="MPMNMmsfrA5uwZM2AvKqVv">
+                    <img class="icons8-64-2-4GK" src="{% static 'website/photos/icon_maqala.png' %}" id="317:115"/>
+                    <div class="item--Bbq" id="317:118">{{ latest_articles.2.nameArticle }}</div>
+                  </div>
+                  <div class="item--zZH" id="317:119">
+                      {{ latest_articles.2.partArticle }}
+                  </div>
+                  <div class="line-8-kqH" id="317:120">
+                    <img class="icons8-50-2-4qy" onclick="openDocument('{{ latest_articles.2.article_file.url }}')" src="{% static 'website/photos/icon_strelka.png' %}" id="318:121"/>
+                  </div>
               </div>
             </div>
           </div>
@@ -387,6 +388,7 @@
     <script type="text/javascript">jQuery('.lightzoom').lightzoom({speed: 400, viewTitle: true});</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
     <script>
         $(document).ready(function() {
             let prevScrollPos = $(window).scrollTop();
@@ -400,10 +402,10 @@
           
               if (scrollDifference >= scrollThreshold) {
                 if (currentScrollPos > prevScrollPos && isMenuVisible) {
-                  nav.animate({ top: `-${nav.outerHeight()}px` }, 300); // Скрыть меню за 300 миллисекунд
+                  nav.animate({ top: `-${nav.outerHeight()}px` }, 300);
                   isMenuVisible = false;
                 } else if (currentScrollPos < prevScrollPos && !isMenuVisible) {
-                  nav.animate({ top: "0" }, 300); // Показать меню за 300 миллисекунд
+                  nav.animate({ top: "0" }, 300);
                   isMenuVisible = true;
                 }
                 prevScrollPos = currentScrollPos;
@@ -414,7 +416,6 @@
           $(function(){
             function updateSlider() {
                 var isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
-                
                 slickOptions = {
                     dots: true,
                     infinite: true,
@@ -425,13 +426,12 @@
                     autoplaySpeed: 3000,
                     centerMode: true,
                     mobileFirst: true,
-                    adaptiveHeight: isMobile, // Оставляем true, чтобы высота слайдера корректно адаптировалась
-                    arrows: !isMobile // Всегда показываем стрелки на десктопе
+                    adaptiveHeight: isMobile,
+                    arrows: !isMobile 
                 };
             }
-      
 
-            $(window).on('load resize', function(){ // Используем событие 'load' и 'resize'
+            $(window).on('load resize', function(){
               updateSlider();
               $('.photo-slide').slick(slickOptions);
             });
@@ -440,19 +440,19 @@
           $('.news-section-content-image').slick({
                     dots: false,
                     infinite: true,
-                    speed: 500,
+                    speed: 2000,
                     fade: true,
                     cssEase: 'ease',
                     autoplay: true,
                     autoplaySpeed: 500,
                     centerMode: true,
                     mobileFirst: true,
-                    adaptiveHeight: false, // Оставляем true, чтобы высота слайдера корректно адаптировалась
-                    arrows: false // Всегда показываем стрелки на десктопе
+                    adaptiveHeight: false, 
+                    arrows: false 
           });
 
           $('.news-section-content').slick({
-                    dots: false,
+                    dots: true,
                     infinite: true,
                     speed: 500,
                     autoplay: true,
@@ -461,8 +461,8 @@
                     autoplaySpeed: 5000,
                     centerMode: true,
                     mobileFirst: true,
-                    adaptiveHeight: false, // Оставляем true, чтобы высота слайдера корректно адаптировалась
-                    arrows: true // Всегда показываем стрелки на десктопе
+                    adaptiveHeight: false,
+                    arrows: false
           });
 
           $(function(){
@@ -472,17 +472,12 @@
               $('#magnify').css({
                 top: 0,
                 left: 0,
-              
-               //left: ($(document).width() - $('#magnify').outerWidth())/2,
-               //top: ($(document).height() - $('#magnify').outerHeight())/2
-              //top: ($(window).height() - $('#magnify').outerHeight())/2
              });
               $('#overlay, #magnify').fadeIn('fast');
             });
             
             $('body').on('click', '#close-popup, #overlay', function(event) {
               event.preventDefault();
-          
               $('#overlay, #magnify').fadeOut('fast', function() {
                 $('#close-popup, #magnify, #overlay').remove();
               });
@@ -491,14 +486,10 @@
           
     </script>
 
-    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
-    <!--new code-->
     <script>
-      // Закрываем модальное окно при нажатии на клавишу "Esc"
-      let players = {}; // Объект для хранения всех Plyr плееров
+      let players = {};
       var modalIdGlobal;
       var videoIdGlobal;
-
     
       function openModal(videoId, modalId) {
         modalIdGlobal = modalId;
@@ -506,7 +497,7 @@
         playerId = "player" + videoId;
         var modal = document.getElementById(modalId);
         modal.style.display = "flex";
-        player = new Plyr('#' + playerId); // Инициализация Plyr плеера для конкретного видео
+        player = new Plyr('#' + playerId);
         player.play();
         player.airplay();
         const nav = $("nav");
@@ -517,79 +508,30 @@
       function closeModal(videoId, modalId) {
         var modal = document.getElementById(modalId);
         const nav = $("nav");
-        nav.animate({ top: "0" }, 300); // Показать меню за 300 миллисекунд
+        nav.animate({ top: "0" }, 300);
         
         if (player) {
             player.pause();
-            player.destroy(); // Уничтожаем Plyr плеер, если он существует
+            player.destroy();
         }
         
         modal.style.display = "none";
         document.body.classList.remove("modal-open");
       }
-
-      // Закрываем модальное окно при нажатии на клавишу "Esc"
+      
       window.onkeydown = function(event) {
           if (event.key === "Escape") {
               closeModal(videoIdGlobal, modalIdGlobal);
           }
       }
 
-      // Закрываем модальное окно при клике за его пределами
       window.onclick = function(event) {
           if (event.target == modalIdGlobal) {
             closeModal(videoIdGlobal, modalIdGlobal);
           }
       }
-    
     </script>
     
-
-    <!--<script>
-      let player;
-
-      function openModal1() {
-        var modal = document.getElementById('videoModal1');
-        modal.style.display = "flex";
-        player1 = new Plyr('#player1');
-        player1.play();
-      }
-      function closeModal1() {
-        var modal = document.getElementById('videoModal1');
-        player1.pause();
-        player1.destroy(); // Уничтожение Plyr
-        modal.style.display = "none";
-      }
-
-      function openModal2() {
-        var modal = document.getElementById('videoModal2');
-        modal.style.display = "flex";
-        player2 = new Plyr('#player2');
-        player2.play();
-        
-      }
-
-      function closeModal2() {
-        var modal = document.getElementById('videoModal2');
-        player2.pause();
-        player2.destroy(); // Уничтожение Plyr
-        modal.style.display = "none";
-      }
-      function openModal3() {
-        var modal = document.getElementById('videoModal3');
-        modal.style.display = "flex";
-        player3 = new Plyr('#player3');
-        player3.play();
-      }
-
-      function closeModal3() {
-        var modal = document.getElementById('videoModal3');
-        player3.pause();
-        player3.destroy(); // Уничтожение Plyr
-        modal.style.display = "none";
-      }
-    </script>-->
-
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const players = Plyr.setup('.plyr');
@@ -598,58 +540,24 @@
 
     <script>
       function openDocument(documentPath) {
-        // Открытие документа в новой вкладке
         window.open(documentPath, '_blank');
       }
-      
-
-      //Скрыть текст в секторе welcome
-      // Получаем ссылку на элемент, который нужно скрыть
-      var myDiv = document.getElementById('306:15');
-      // Создаем медиа-запрос для мобильных экранов
-      var mobileMediaQuery = window.matchMedia("(max-width: 768px)");
-      // Функция для обработки изменений состояния медиа-запроса
-      function handleMobileScreenChange(mq) {
-          // Проверяем, соответствует ли текущий размер экрана медиа-запросу
-          if (mq.matches) {
-              // Если да, скрываем элемент
-              myDiv.style.display = "none";
-          } else {
-              // Если нет, отображаем элемент
-              myDiv.style.display = "block";
-          }
-      }
-      // Вызываем функцию для первоначальной настройки состояния элемента
-      handleMobileScreenChange(mobileMediaQuery);
-      // Добавляем слушатель события изменения состояния медиа-запроса
-      mobileMediaQuery.addListener(handleMobileScreenChange);
     </script>
 
     <script>
       $(document).ready(function() {
         $(".scrollToElement").on('click', function(event) {
           event.preventDefault();
-          
-          // Получаем целевой элемент, к которому нужно прокрутить страницу, из data-атрибута
           var targetSelector = $(this).data('target');
           var $target = $(targetSelector);
-      
-          // Плавно прокручиваем страницу к целевому элементу
           if ($target.length) {
             $('html, body').animate({
               scrollTop: $target.offset().top
-            }, 800); // Время анимации в миллисекундах
+            }, 800);
           }
         });
       });
     </script>
-
-  <!--<script>
-  document.getElementById('languageSelect').addEventListener('change', function() {
-      this.form.submit();
-  });
-  </script>-->
-
 <script>
   window.onload = function() {
       var classDivHeight = document.querySelector('.group-17-oSK').offsetHeight;
@@ -664,16 +572,35 @@
   };
 </script>
 
+<script>
+  function resizeSvgElements() {
+      const svg = document.getElementsByClassName("articles-svg");
+      const screenWidth = window.innerWidth;
+      
+      for (let i = 0; i < svg.length; i++) {
+          const rect = svg[i].getElementById("rectElement");
+          const path = svg[i].getElementById("pathElement");
+          
+          if (screenWidth <= 767) {
+              svg[i].setAttribute("width", "100");
+              svg[i].setAttribute("height", "100");
+              svg[i].setAttribute("style", "border-radius: 0 2.5vw")
+              rect.setAttribute("width", "100");
+              rect.setAttribute("height", "100");
+              path.setAttribute("d", "M 0 0 L 0 100 L 100 100 A 100 100 0 0 0 0 0");
+          } else if (screenWidth <= 1024) {
+              svg[i].setAttribute("width", "150");
+              svg[i].setAttribute("height", "150");
+              svg[i].setAttribute("style", "border-radius: 0 2.5vw")
+              rect.setAttribute("width", "150");
+              rect.setAttribute("height", "150");
+              path.setAttribute("d", "M 0 0 L 0 150 L 150 150 A 150 150 0 0 0 0 0");
+          }
+      }
+  }
+  resizeSvgElements();
+  window.addEventListener("resize", resizeSvgElements);
+</script>
 
-
-    <!--<script>
-      // Инициализация Plyr для аудио
-      const playerAudio = new Plyr('audio');
-    
-      // Включить функционал Plyr
-      playerAudio.setup();
-    </script>-->
-    
-  
 </body>
 </html>
